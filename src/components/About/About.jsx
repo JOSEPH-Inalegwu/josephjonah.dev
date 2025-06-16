@@ -108,7 +108,7 @@ const About = () => {
                 ABOUT ME
               </h3>
               <h1 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-                Transforming visions into exceptional portfolios
+                Shaping Aspirations into Vibrant Web Experiences
               </h1>
 
             </motion.div>

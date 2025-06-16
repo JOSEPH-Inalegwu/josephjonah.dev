@@ -51,11 +51,11 @@ const EducationSkills = () => {
   const skills = [
     {
       category: "Frontend Development",
-      items: ["React.js", "Npm", "Tailwind CSS", "JavaScript (ES6+)", "HTML5 & CSS3"]
+      items: ["React.js", "Npm", "Tailwind CSS", "JavaScript (ES6+)", "HTML5 & CSS3", "TypeScript", "Responsive Design"]
     },
     {
       category: "Development Tools",
-      items: ["Git & GitHub", "VS Code", "Figma", "Responsive Design", "API Integration"]
+      items: ["Git & GitHub", "VS Code", "Figma","Vercel, Netlify", "API Integration"]
     },
     {
       category: "AI/ML Learning",
@@ -101,7 +101,7 @@ const EducationSkills = () => {
             EDUCATION & SKILLS
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-            Frontend expertise meets AI ambition
+            Mastering Frontend Artistry with AI-Driven Innovation
           </h2>
         </motion.div>
 

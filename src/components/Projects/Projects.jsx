@@ -229,7 +229,7 @@ const Projects = () => {
             MY RECENT PORTFOLIO
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-            Elevate your brand to new heights with our portfolio expertise
+           Spark Your Brand’s Story Through Visionary Web Design
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Explore my latest projects showcasing modern web development, 
