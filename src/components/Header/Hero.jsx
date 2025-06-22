@@ -15,8 +15,22 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id='home' className="hero-pattern-bg h-[calc(100vh-10%)] text-white dark:text-gray-100 px-3 md:px-5 lg:px-30 lg:mt-32 flex items-center">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <section id='home' className="hero-animated-background h-[calc(100vh-10%)] text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center">
+      {/* Animated Background Elements */}
+      <div className="orb-1"></div>
+      <div className="orb-2"></div>
+      <div className="grid-overlay"></div>
+      <div className="particle-1"></div>
+      <div className="particle-2"></div>
+      <div className="particle-3"></div>
+      <div className="particle-4"></div>
+      <div className="particle-5"></div>
+      <div className="shape-1"></div>
+      <div className="shape-2"></div>
+      <div className="shape-3"></div>
+
+      {/* Main Content - positioned above the animated background */}
+      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left Content */}
         <div className="space-y-6 mt-28 md:mt-10 lg:mt-15">
           <div className="space-y-5">
@@ -54,7 +68,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-gray-400 text-[16px] md:text-[16px] leading-loose max-w-3xl" style={{fontFamily: 'Mont'}}>
-              Hey there — I’m a frontend developer who enjoys making the web a better (and better-looking) place. I build responsive, accessible, and fast websites that actually work. Friendly to users, solid under the hood, and built with care — that’s my style. 
+              Hey there — I'm a frontend developer who enjoys making the web a better (and better-looking) place. I build responsive, accessible, and fast websites that actually work. Friendly to users, solid under the hood, and built with care — that's my style. 
             </p>
           </div>
 
