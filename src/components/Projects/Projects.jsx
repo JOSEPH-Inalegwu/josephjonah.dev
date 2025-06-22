@@ -5,15 +5,20 @@ import { FaPlay, FaExternalLinkAlt, FaGithub, FaEye, FaCode, FaArrowRight } from
 
 const Projects = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  // Changed: amount: 0 for immediate trigger, added margin for earlier detection
+  const isInView = useInView(ref, { 
+    once: true, 
+    amount: 0,
+    margin: "0px 0px -100px 0px" // Triggers 100px before element enters viewport
+  });
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 0.8,
+      opacity: 1, // Changed from 0.8 to 1 for full opacity
       transition: {
-        staggerChildren: 0.2,
-        duration: 0.3
+        staggerChildren: 0.1, // Reduced from 0.2 for faster appearance
+        duration: 0.2 // Reduced from 0.3 for faster transition
       }
     }
   };
@@ -21,15 +26,15 @@ const Projects = () => {
   const projectVariants = {
     hidden: { 
       opacity: 0, 
-      y: 20,
-      scale: 0.4
+      y: 10, // Reduced from 20 for subtler animation
+      scale: 0.95 // Changed from 0.4 for less dramatic scaling
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3, // Reduced from 0.5 for faster animation
         ease: "easeOut"
       }
     }
@@ -221,15 +226,15 @@ const Projects = () => {
         {/* Header Section */}
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 20 }} // Reduced from y: 30
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.4 }} // Reduced from 0.8
         >
           <h3 className="text-cyan-400 text-lg font-semibold mb-4 tracking-wider">
             MY RECENT PORTFOLIO
           </h3>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-           Spark Your Brand’s Story Through Visionary Web Design
+           Spark Your Brand's Story Through Visionary Web Design
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Explore my latest projects showcasing modern web development, 
@@ -266,9 +271,9 @@ const Projects = () => {
         {/* View More Button */}
         <motion.div 
           className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.8 }}
+          initial={{ opacity: 0, y: 10 }} // Reduced from y: 20
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ delay: 0.4 }} // Reduced from 0.8
         >
           <button
             className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-cyan-400/25 cursor-pointer"

@@ -85,7 +85,7 @@ const About = () => {
   };
 
   return (
-    <section id='about' className="text-white md:py-20 px-2 md:px-12 lg:px-24">
+    <section id='about' className="text-white py-20 px-2 md:px-12 lg:px-24">
       <div className="container mx-auto md:max-w-6xl">
         <motion.div 
           ref={ref}
@@ -154,7 +154,7 @@ const About = () => {
                 variants={imageVariants}
               >
                 <img 
-                  src="/api/placeholder/600/700" 
+                  src="/jose.jpg" 
                   alt="Profile" 
                   className="w-full h-auto aspect-[7/9] object-cover"
                 />
