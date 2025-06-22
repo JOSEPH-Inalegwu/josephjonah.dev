@@ -51,7 +51,7 @@ const Services = () => {
 
   return (
     <section id='services'
-      className="text-white py-20 px-2 md:px-12 lg:px-24"
+      className="text-white mt-20 py-20 px-2 md:px-12 lg:px-24"
     >
       <div className="container mx-auto max-w-7xl">
         {/* Header Section */}
