@@ -154,7 +154,7 @@ const About = () => {
                 variants={imageVariants}
               >
                 <img 
-                  src="/jose.jpg" 
+                  src="/joseph.jpg" 
                   alt="Profile" 
                   className="w-full h-auto aspect-[7/9] object-cover"
                 />

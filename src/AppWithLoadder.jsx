@@ -6,6 +6,7 @@ import Services from './components/Services/Services'
 import About from './components/About/About'
 import EducationSkills from './components/About/EducationSkills'
 import Projects from './components/Projects/Projects'
+import Contact from './components/Contact/Contact';
 
 
 const LoadingScreen = ({ onLoadingComplete }) => {
@@ -295,7 +296,7 @@ const AppWithLoader = () => {
         <About />
         <EducationSkills />
         <Projects />
-
+        <Contact />
       </div>
     </div>
   );
