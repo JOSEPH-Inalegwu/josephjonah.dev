@@ -7,6 +7,7 @@ import About from './components/About/About'
 import EducationSkills from './components/About/EducationSkills'
 import Projects from './components/Projects/Projects'
 import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 
 const LoadingScreen = ({ onLoadingComplete }) => {
@@ -297,6 +298,7 @@ const AppWithLoader = () => {
         <EducationSkills />
         <Projects />
         <Contact />
+        <Footer />
       </div>
     </div>
   );
