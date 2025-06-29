@@ -78,27 +78,26 @@ const ContactForm = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+      <div className="text-center p-5">
         <div 
-          className="px-2 text-center"
           style={{
             opacity: 1,
             transform: 'translateY(0)',
             transition: 'all 0.3s ease'
           }}
         >
-          <h2
-            className="text-white text-2xl font-bold mb-6"
+          <h3
+            className="text-white text-xl font-bold mb-4"
             style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
           >
             MESSAGE SENT!
-          </h2>
-          <p className="text-gray-300 mb-6">
+          </h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
             Thank you for reaching out. I'll get back to you soon!
           </p>
           <button
             onClick={() => setSubmitted(false)}
-            className="bg-cyan-500 text-black font-bold py-3 px-6 hover:bg-cyan-400 transition-colors"
+            className="bg-cyan-500 text-black font-bold py-3 px-6 hover:bg-cyan-400 transition-all duration-300 hover:-translate-y-1"
             style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
           >
             SEND ANOTHER MESSAGE
@@ -109,21 +108,21 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+    <div className="w-full bg-gray-900 text-center my-6">
       <div
-        className="px-2 w-full max-w-md"
+        className="md:max-w-md mx-auto px-4 py-15"
         style={{
           opacity: 1,
           transform: 'translateY(0)',
           transition: 'opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s'
         }}
       >
-        <h2
-          className="text-white text-2xl font-bold mb-6"
+        <h3
+          className="text-white text-xl font-bold mb-6"
           style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
         >
-          GET IN TOUCH
-        </h2>
+          SEND MESSAGE
+        </h3>
         
         <div className="space-y-6">
           <div>
@@ -134,10 +133,10 @@ const ContactForm = () => {
               onChange={handleInputChange}
               placeholder="Your Name"
               className={`w-full bg-transparent border ${
-                errors.name ? 'border-red-500' : 'border-cyan-500'
-              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors ${
+                errors.name ? 'border-red-500' : 'border-gray-800'
+              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
                 errors.name ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              }`}
+              } hover:border-cyan-400/30`}
               style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
             />
             {errors.name && (
@@ -153,10 +152,10 @@ const ContactForm = () => {
               onChange={handleInputChange}
               placeholder="Your Email"
               className={`w-full bg-transparent border ${
-                errors.email ? 'border-red-500' : 'border-cyan-500'
-              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors ${
+                errors.email ? 'border-red-500' : 'border-gray-800'
+              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
                 errors.email ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              }`}
+              } hover:border-cyan-400/30`}
               style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
             />
             {errors.email && (
@@ -172,10 +171,10 @@ const ContactForm = () => {
               onChange={handleInputChange}
               placeholder="Your Message"
               className={`w-full bg-transparent border ${
-                errors.message ? 'border-red-500' : 'border-cyan-500'
-              } text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-colors ${
+                errors.message ? 'border-red-500' : 'border-gray-800'
+              } text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-all duration-300 ${
                 errors.message ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              }`}
+              } hover:border-cyan-400/30`}
               style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
             />
             {errors.message && (
@@ -186,10 +185,10 @@ const ContactForm = () => {
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className={`w-full font-bold py-5 transition-all duration-200 cursor-pointer ${
+            className={`w-full font-bold py-5 transition-all duration-300 ${
               isSubmitting 
                 ? 'bg-gray-600 text-gray-300 cursor-not-allowed' 
-                : 'bg-cyan-500 text-black hover:bg-gray-800 hover:scale-105 active:scale-95'
+                : 'bg-transparent backdrop-blur-sm border-2 border-gray-800 text-white hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/10 hover:text-cyan-400'
             }`}
             style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
           >

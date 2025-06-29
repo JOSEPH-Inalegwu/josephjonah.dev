@@ -39,21 +39,21 @@ const ProcessSlider = ({
       border: 'border-cyan-400',
       bg: 'bg-cyan-400',
       hover: 'hover:text-cyan-300',
-      bgHover: 'hover:bg-cyan-400'
+      bgHover: 'hover:bg-cyan-600'
     },
     blue: {
       accent: 'text-blue-400',
       border: 'border-blue-400',
       bg: 'bg-blue-400',
       hover: 'hover:text-blue-300',
-      bgHover: 'hover:bg-blue-400'
+      bgHover: 'hover:bg-blue-600'
     },
     purple: {
       accent: 'text-purple-400',
       border: 'border-purple-400',
       bg: 'bg-purple-400',
       hover: 'hover:text-purple-300',
-      bgHover: 'hover:bg-purple-400'
+      bgHover: 'hover:bg-purple-600'
     }
   };
 
@@ -67,7 +67,7 @@ const ProcessSlider = ({
       <div className="lg:hidden">
         <div className="text-center mb-12">
           <h1
-            className="text-white text-3xl md:text-4xl font-semibold mb-4"
+            className="text-white text-2xl md:text-3xl font-semibold mb-4"
           >
             {title}
           </h1>
@@ -108,13 +108,13 @@ const ProcessSlider = ({
         </div>
       </div>
 
-      {/* Desktop View - Professional Slider */}
+      {/* Desktop View - Slider */}
       <div className="hidden lg:block h-full">
         <div className="h-full flex flex-col">
           {/* Header */}
           <div className="mb-12">
             <h1
-              className="text-white text-3xl md:text-4xl font-semibold mb-6"
+              className="text-white text-2xl font-semibold mb-6"
             >
               {title}
             </h1>
@@ -260,7 +260,7 @@ const HowIWork = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black p-8">
+    <div className="min-h-screen bg-black py-8">
       <ProcessSlider
         title="How I Work"
         subtitle="I follow a proven process that ensures quality delivery, clear communication, and successful project outcomes for every client."
