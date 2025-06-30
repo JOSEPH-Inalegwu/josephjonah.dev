@@ -8,6 +8,7 @@ import EducationSkills from './components/About/EducationSkills'
 import Projects from './components/Projects/Projects'
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import ScrollToTop from './ScrollToTop';
 
 
 const LoadingScreen = ({ onLoadingComplete }) => {
@@ -287,6 +288,8 @@ const AppWithLoader = () => {
       {isLoading && (
         <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       )}
+
+      <ScrollToTop />
       
       {/* Your Main App Content */}
       <div className={`transition-all duration-1000 ${isLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
