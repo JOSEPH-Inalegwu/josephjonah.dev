@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Added useEffect import
 import { motion, AnimatePresence } from 'framer-motion';
 import joseLogo from '../../../public/jose-logo.png'
 
@@ -32,6 +32,22 @@ const NavLink = ({ children, href, hasDropdown = false }) => {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Correctly placed useEffect - inside the component body, after state declaration
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Prevent body scroll when sidebar is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore body scroll when sidebar is closed
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll on component unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -111,145 +127,158 @@ const Navbar = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <>
-            {/* Makes the main page blur when side panels opens */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:fixed inset-0 bg-black/20 backdrop-blur-xs z-40"
-            />
-            <motion.div
-              initial={{ x: '100%', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: '100%', opacity: 0 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="hidden md:block fixed right-0 top-0 h-full w-96 bg-black shadow-2xl z-50 p-8 border border-l-cyan-500 border-y-0 border-r-0"
-              style={{
-                scrollbarWidth: 'none',  // Firefox
-                msOverflowStyle: 'none', // IE 10+
-              }}
-            >
-              {/* Hide scrollbar for Chrome, Safari and Opera */}
-              <style>{`
-                .no-scrollbar::-webkit-scrollbar {
-                  display: none;
-                }
-              `}</style>
-
-              {/* Fixed Header: Logo + Close Button */}
-              <div className="fixed right-0 top-0 w-96 bg-gray-900 p-8 flex items-center justify-between z-50 border border-y-0 border-r-0 border-l-cyan-500">
-                {/* Logo */}
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.3 }}
-                  className="flex items-center space-x-3"
-                >
-                  <div className="w-12 h-12 bg-custom-blue flex items-center justify-center">
-                    <div>
-                      <img src={joseLogo} 
-                      className="w-10 h-7"
-                      alt="Jose Logo" 
-                      />
-                    </div>
-                  </div>
-                  <span
-                    className="text-white text-2xl font-bold tracking-wider"
-                    style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                  >
-                    JOSE
-                  </span>
-                </motion.div>
-
-                {/* Close Button */}
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 bg-custom-blue rounded-full flex items-center justify-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </motion.button>
-              </div>
-
-              {/* Scrollable content below header */}
-              <div
-                className="no-scrollbar overflow-y-auto pt-[135px] h-full"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              {/* Backdrop - prevents interaction with main content */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:fixed inset-0 bg-black/20 backdrop-blur-xs z-40"
+                onClick={() => setIsMenuOpen(false)} // Close on backdrop click
+              />
+              
+              <motion.div
+                initial={{ x: '100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: '100%', opacity: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="hidden md:flex fixed right-0 top-0 h-screen w-96 bg-black shadow-2xl z-50 border border-l-cyan-500 border-y-0 border-r-0 flex-col"
+                // Add scroll containment
+                onWheel={(e) => {
+                  // Prevent wheel events from bubbling to parent
+                  e.stopPropagation();
+                }}
+                onTouchMove={(e) => {
+                  // Prevent touch scroll events from bubbling to parent
+                  e.stopPropagation();
+                }}
               >
-                {/* About Us Section */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.3 }}
-                  className="mb-12 px-2"
-                >
-                  <h2
-                    className="text-white text-2xl font-bold mb-6"
-                    style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                {/* Fixed Header: Logo + Close Button */}
+                <div className="flex-shrink-0 bg-gray-900 p-8 flex items-center justify-between border border-y-0 border-r-0 border-l-cyan-500">
+                  {/* Logo */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.3 }}
+                    className="flex items-center space-x-3"
                   >
-                    ABOUT ME
-                  </h2>
-                  <p
-                    className="text-gray-400 leading-relaxed"
-                    style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam laboris.
-                  </p>
-                </motion.div>
-
-                {/* Get In Touch Section */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.3 }}
-                  className="px-2"
-                >
-                  <h2
-                    className="text-white text-2xl font-bold mb-6"
-                    style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                  >
-                    GET IN TOUCH
-                  </h2>
-                  <div className="space-y-6">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    />
-                    <textarea
-                      rows={4}
-                      placeholder="Your Message"
-                      className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-colors"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    ></textarea>
-                    <motion.button
-                      whileHover={{ scale: 1.02, backgroundColor: '#1F2937' }}
-                      whileTap={{ scale: 0.98 }}
-                      type="submit"
-                      className="w-full bg-custom-blue text-black font-bold py-5 transition-all duration-200 cursor-pointer"
+                    <div className="w-12 h-12 bg-custom-blue flex items-center justify-center">
+                      <div>
+                        <img src={joseLogo} 
+                        className="w-10 h-7"
+                        alt="Jose Logo" 
+                        />
+                      </div>
+                    </div>
+                    <span
+                      className="text-white text-2xl font-bold tracking-wider"
                       style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
                     >
-                      SUBMIT NOW
-                    </motion.button>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
+                      JOSE
+                    </span>
+                  </motion.div>
+
+                  {/* Close Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-12 h-12 bg-custom-blue rounded-full flex items-center justify-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </motion.button>
+                </div>
+
+                {/* Scrollable content container */}
+                <div
+                  className="flex-1 overflow-y-auto p-8 sidebar-scroll"
+                  style={{ 
+                    scrollbarWidth: 'none',  // Firefox
+                    msOverflowStyle: 'none', // IE 10+
+                  }}
+                  // Additional scroll containment
+                  onScroll={(e) => {
+                    e.stopPropagation();
+                  }}
+                >
+                  {/* About Us Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.3 }}
+                    className="mb-12"
+                  >
+                    <h2
+                      className="text-white text-2xl font-bold mb-6"
+                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                    >
+                      ABOUT ME
+                    </h2>
+                    <p
+                      className="text-gray-400 leading-relaxed"
+                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                    >
+                      Code is poetry. I write mine with purpose, performance, and people in mind.
+                      When I’m not coding, I’m lost in a book. Good stories make better developers — got a favorite? Recommend it.
+                    </p>
+                  </motion.div>
+
+                  {/* Get In Touch Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.3 }}
+                  >
+                    <h2
+                      className="text-white text-2xl font-bold mb-6"
+                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                    >
+                      GET IN TOUCH
+                    </h2>
+                    <div className="space-y-6">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
+                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your Email"
+                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
+                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                      />
+                      <textarea
+                        rows={8}
+                        placeholder="Your Message"
+                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-colors"
+                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                      ></textarea>
+                      <motion.button
+                        whileHover={{ scale: 1.02, backgroundColor: '#1F2937' }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                        className="w-full bg-custom-blue text-black font-bold py-5 transition-all duration-200 cursor-pointer"
+                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+                      >
+                        SUBMIT NOW
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
             </>
           )}
         </AnimatePresence>
 
+        {/* Add the CSS for hiding scrollbars */}
+        <style jsx>{`
+          .sidebar-scroll::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
       </nav>
     </>
   );

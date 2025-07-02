@@ -55,11 +55,19 @@ const EducationSkills = () => {
     },
     {
       category: "Development Tools",
-      items: ["Git & GitHub", "VS Code", "Figma","Vercel, Netlify", "API Integration"]
+      items: ["Git & GitHub", "VS Code", "Linux","Vercel, Netlify", "API Integration"]
     },
     {
-      category: "AI/ML Learning",
-      items: ["Python (CS50P)", "Data Structures", "Machine Learning Concepts", "Algorithms", "Problem Solving", "Panda, Scikit, NumPy"]
+      category: "Fullstack T3 Journey",
+      items: [
+        "TypeScript",
+        "Next.js (App Router)",
+        "Tailwind CSS",
+        "tRPC",
+        "Prisma",
+        "Zod & Form Validation",
+        "Authentication & Middleware"
+      ]
     }
   ];
 
@@ -73,10 +81,10 @@ const EducationSkills = () => {
     },
     {
       period: "2024 - Present",
-      institution: "Harvard CS50P",
-      degree: "Python Programming",
+      institution: "Self-Paced",
+      degree: "Fullstack T3 Stack Development",
       status: "Currently Learning",
-      description: "Intensive Python programming course focusing on problem-solving, data structures, and programming fundamentals. Building strong foundation for AI/ML engineering career transition."
+      description: "Focused on mastering the modern T3 stack — TypeScript, Tailwind CSS, Next.js, tRPC, and Prisma. Building scalable, type-safe fullstack applications with strong frontend and backend integration."
     },
     {
       period: "2022 - 2024",
