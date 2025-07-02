@@ -9,6 +9,7 @@ import Projects from './components/Projects/Projects'
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './ScrollToTop';
+import TechMarquee from './components/TechMarquee/TechMarquee';
 
 
 const LoadingScreen = ({ onLoadingComplete }) => {
@@ -301,6 +302,9 @@ const AppWithLoader = () => {
         <EducationSkills />
         <Projects />
         <Contact />
+        <TechMarquee />
+        
+        {/* Footer */}
         <Footer />
       </div>
     </div>
