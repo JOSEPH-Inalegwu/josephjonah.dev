@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'; // Added useEffect import
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import joseLogo from '../../../public/jose-logo.png'
+import joseLogo from '../../../public/jose-logo.png';
+import ContactForm from '../Contact/ContactForm';
 
-// Custom NavLink component with fill animation
 const NavLink = ({ children, href, hasDropdown = false }) => {
   return (
     <div className="relative group">
@@ -32,35 +32,48 @@ const NavLink = ({ children, href, hasDropdown = false }) => {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Correctly placed useEffect - inside the component body, after state declaration
+  // Handle sidebar scroll lock
   useEffect(() => {
-    if (isMenuOpen) {
-      // Prevent body scroll when sidebar is open
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Restore body scroll when sidebar is closed
-      document.body.style.overflow = 'unset';
-    }
-
-    // Cleanup function to restore scroll on component unmount
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
 
+  // Scroll direction detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      console.log('Scroll Y:', currentScrollY);
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setShowNavbar(false);
+        console.log('HIDE navbar');
+      } else {
+        setShowNavbar(true);
+        console.log('SHOW navbar');
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+
   return (
     <>
-      <nav className="fixed top-0 w-full z-50">
+      <nav className={`fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="bg-gray-900 mx-0 md:mx-3 lg:mx-30 p-2 md:p-0 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center">
               <div>
-                <img src={joseLogo} 
-                className="w-10 h-7 md:w-16 md:h-12"
-                alt="Jose Logo" 
-                />
+                <img src={joseLogo} className="w-10 h-7 md:w-16 md:h-12" alt="Jose Logo" />
               </div>
             </div>
             <span className="text-white text-2xl font-extrabold tracking-wider" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
@@ -78,7 +91,7 @@ const Navbar = () => {
             <NavLink href="#contact">CONTACT</NavLink>
           </div>
 
-          {/* Menu Button - Shows on all screen sizes */}
+          {/* Menu Button */}
           <button
             className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -91,7 +104,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - Navigation Links Only */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -101,40 +114,27 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="md:hidden mx-0 md:mx-0 py-6 text-sm space-y-8 text-center overflow-hidden border border-x-0 border-b-2 border-b-cyan-400 border-t-cyan-400 bg-gray-900"
             >
-              <a href='#home' className="block text-white cursor-pointer font-medium">
-                HOME
-              </a>
-              <a href="#about" className="block text-white font-medium">
-                ABOUT
-              </a>
-              <a href="#services" className="block text-white font-medium">
-                SERVICES
-              </a>
-              <a href="#projects" className="block text-white  font-medium">
-                PROJECTS
-              </a>
-              <div className="text-white cursor-pointer font-medium">
-                BLOG
-              </div>
-              <a href="#contact" className="block text-white font-medium">
-                CONTACT
-              </a>
+              <a href='#home' className="block text-white cursor-pointer font-medium">HOME</a>
+              <a href="#about" className="block text-white font-medium">ABOUT</a>
+              <a href="#services" className="block text-white font-medium">SERVICES</a>
+              <a href="#projects" className="block text-white font-medium">PROJECTS</a>
+              <div className="text-white cursor-pointer font-medium">BLOG</div>
+              <a href="#contact" className="block text-white font-medium">CONTACT</a>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Desktop Side Panel - About Us & Contact Form */}
+        {/* Sidebar */}
         <AnimatePresence>
           {isMenuOpen && (
             <>
-              {/* Backdrop - prevents interaction with main content */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className="md:fixed inset-0 bg-black/20 backdrop-blur-xs z-40"
-                onClick={() => setIsMenuOpen(false)} // Close on backdrop click
+                onClick={() => setIsMenuOpen(false)}
               />
               
               <motion.div
@@ -143,19 +143,10 @@ const Navbar = () => {
                 exit={{ x: '100%', opacity: 0 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="hidden md:flex fixed right-0 top-0 h-screen w-96 bg-black shadow-2xl z-50 border border-l-cyan-500 border-y-0 border-r-0 flex-col"
-                // Add scroll containment
-                onWheel={(e) => {
-                  // Prevent wheel events from bubbling to parent
-                  e.stopPropagation();
-                }}
-                onTouchMove={(e) => {
-                  // Prevent touch scroll events from bubbling to parent
-                  e.stopPropagation();
-                }}
+                onWheel={(e) => e.stopPropagation()}
+                onTouchMove={(e) => e.stopPropagation()}
               >
-                {/* Fixed Header: Logo + Close Button */}
                 <div className="flex-shrink-0 bg-gray-900 p-8 flex items-center justify-between border border-y-0 border-r-0 border-l-cyan-500">
-                  {/* Logo */}
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -163,22 +154,13 @@ const Navbar = () => {
                     className="flex items-center space-x-3"
                   >
                     <div className="w-12 h-12 bg-custom-blue flex items-center justify-center">
-                      <div>
-                        <img src={joseLogo} 
-                        className="w-10 h-7"
-                        alt="Jose Logo" 
-                        />
-                      </div>
+                      <div><img src={joseLogo} className="w-10 h-7" alt="Jose Logo" /></div>
                     </div>
-                    <span
-                      className="text-white text-2xl font-bold tracking-wider"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    >
+                    <span className="text-white text-2xl font-bold tracking-wider" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
                       JOSE
                     </span>
                   </motion.div>
 
-                  {/* Close Button */}
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -191,81 +173,31 @@ const Navbar = () => {
                   </motion.button>
                 </div>
 
-                {/* Scrollable content container */}
-                <div
-                  className="flex-1 overflow-y-auto p-8 sidebar-scroll"
-                  style={{ 
-                    scrollbarWidth: 'none',  // Firefox
-                    msOverflowStyle: 'none', // IE 10+
-                  }}
-                  // Additional scroll containment
-                  onScroll={(e) => {
-                    e.stopPropagation();
-                  }}
-                >
-                  {/* About Us Section */}
+                <div className="flex-1 overflow-y-auto p-8 sidebar-scroll" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.3 }}
                     className="mb-12"
                   >
-                    <h2
-                      className="text-white text-2xl font-bold mb-6"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    >
+                    <h2 className="text-white text-2xl font-bold mb-6" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
                       ABOUT ME
                     </h2>
-                    <p
-                      className="text-gray-400 leading-relaxed"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    >
+                    <p className="text-gray-400 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
                       Code is poetry. I write mine with purpose, performance, and people in mind.
                       When I’m not coding, I’m lost in a book. Good stories make better developers — got a favorite? Recommend it.
                     </p>
                   </motion.div>
 
-                  {/* Get In Touch Section */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.3 }}
                   >
-                    <h2
-                      className="text-white text-2xl font-bold mb-6"
-                      style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                    >
+                    <h2 className="text-white text-2xl font-bold mb-6" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
                       GET IN TOUCH
                     </h2>
-                    <div className="space-y-6">
-                      <input
-                        type="text"
-                        placeholder="Your Name"
-                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
-                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                      />
-                      <input
-                        type="email"
-                        placeholder="Your Email"
-                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-colors"
-                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                      />
-                      <textarea
-                        rows={8}
-                        placeholder="Your Message"
-                        className="w-full bg-transparent border border-cyan-500 text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-colors"
-                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                      ></textarea>
-                      <motion.button
-                        whileHover={{ scale: 1.02, backgroundColor: '#1F2937' }}
-                        whileTap={{ scale: 0.98 }}
-                        type="submit"
-                        className="w-full bg-custom-blue text-black font-bold py-5 transition-all duration-200 cursor-pointer"
-                        style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-                      >
-                        SUBMIT NOW
-                      </motion.button>
-                    </div>
+                    <ContactForm />
                   </motion.div>
                 </div>
               </motion.div>
@@ -273,7 +205,6 @@ const Navbar = () => {
           )}
         </AnimatePresence>
 
-        {/* Add the CSS for hiding scrollbars */}
         <style jsx>{`
           .sidebar-scroll::-webkit-scrollbar {
             display: none;
