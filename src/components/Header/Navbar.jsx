@@ -35,7 +35,6 @@ const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Handle sidebar scroll lock
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
     return () => {
@@ -43,18 +42,14 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Scroll direction detection
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      console.log('Scroll Y:', currentScrollY);
 
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShowNavbar(false);
-        console.log('HIDE navbar');
       } else {
         setShowNavbar(true);
-        console.log('SHOW navbar');
       }
 
       setLastScrollY(currentScrollY);
@@ -64,6 +59,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  const handleMobileLinkClick = (e, id) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  };
 
   return (
     <>
@@ -72,13 +77,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center">
-              <div>
-                <img src={joseLogo} className="w-10 h-7 md:w-16 md:h-12" alt="Jose Logo" />
-              </div>
+              <img src={joseLogo} className="w-10 h-7 md:w-16 md:h-12" alt="Jose Logo" />
             </div>
-            <span className="text-white text-2xl font-extrabold tracking-wider" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
-              {/* JOSE */}
-            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -88,7 +88,7 @@ const Navbar = () => {
             <NavLink href="#services">SERVICES</NavLink>
             <NavLink href="#projects">PROJECTS</NavLink>
             <NavLink href="#blog" hasDropdown={true}>BLOG</NavLink>
-            <NavLink href="#contact">CONTACT</NavLink>
+          <NavLink href="#contact">CONTACT</NavLink>
           </div>
 
           {/* Menu Button */}
@@ -96,11 +96,19 @@ const Navbar = () => {
             className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <div className="space-y-2">
-              <div className="w-6 h-0.5 bg-black"></div>
-              <div className="w-6 h-0.5 bg-black"></div>
-              <div className="w-6 h-0.5 bg-black"></div>
-            </div>
+            {isMenuOpen ? (
+              // X icon when menu is open
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Hamburger icon when menu is closed
+              <div className="space-y-2">
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
+                <div className="w-6 h-0.5 bg-black"></div>
+              </div>
+            )}
           </button>
         </div>
 
@@ -112,14 +120,14 @@ const Navbar = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden mx-0 md:mx-0 py-6 text-sm space-y-8 text-center overflow-hidden border border-x-0 border-b-2 border-b-cyan-400 border-t-cyan-400 bg-gray-900"
+              className="md:hidden mx-0 py-6 text-sm space-y-8 text-center overflow-hidden border border-x-0 border-b-2 border-b-cyan-400 border-t-cyan-400 bg-gray-900"
             >
-              <a href='#home' className="block text-white cursor-pointer font-medium">HOME</a>
-              <a href="#about" className="block text-white font-medium">ABOUT</a>
-              <a href="#services" className="block text-white font-medium">SERVICES</a>
-              <a href="#projects" className="block text-white font-medium">PROJECTS</a>
-              <div className="text-white cursor-pointer font-medium">BLOG</div>
-              <a href="#contact" className="block text-white font-medium">CONTACT</a>
+              <a href="#home" onClick={(e) => handleMobileLinkClick(e, '#home')} className="block text-white font-medium">HOME</a>
+              <a href="#about" onClick={(e) => handleMobileLinkClick(e, '#about')} className="block text-white font-medium">ABOUT</a>
+              <a href="#services" onClick={(e) => handleMobileLinkClick(e, '#services')} className="block text-white font-medium">SERVICES</a>
+              <a href="#projects" onClick={(e) => handleMobileLinkClick(e, '#projects')} className="block text-white font-medium">PROJECTS</a>
+              <a href="#blog" onClick={(e) => handleMobileLinkClick(e, '#blog')} className="block text-white font-medium">BLOG</a>
+              <a href="#contact" onClick={(e) => handleMobileLinkClick(e, '#contact')} className="block text-white font-medium">CONTACT</a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -143,8 +151,6 @@ const Navbar = () => {
                 exit={{ x: '100%', opacity: 0 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="hidden md:flex fixed right-0 top-0 h-screen w-96 bg-black shadow-2xl z-50 border border-l-cyan-500 border-y-0 border-r-0 flex-col"
-                onWheel={(e) => e.stopPropagation()}
-                onTouchMove={(e) => e.stopPropagation()}
               >
                 <div className="flex-shrink-0 bg-gray-900 p-8 flex items-center justify-between border border-y-0 border-r-0 border-l-cyan-500">
                   <motion.div
@@ -154,11 +160,9 @@ const Navbar = () => {
                     className="flex items-center space-x-3"
                   >
                     <div className="w-12 h-12 bg-custom-blue flex items-center justify-center">
-                      <div><img src={joseLogo} className="w-10 h-7" alt="Jose Logo" /></div>
+                      <img src={joseLogo} className="w-10 h-7" alt="Jose Logo" />
                     </div>
-                    <span className="text-white text-2xl font-bold tracking-wider" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
-                      JOSE
-                    </span>
+                    <span className="text-white text-2xl font-bold tracking-wider">JOSE</span>
                   </motion.div>
 
                   <motion.button
@@ -180,10 +184,8 @@ const Navbar = () => {
                     transition={{ delay: 0.2, duration: 0.3 }}
                     className="mb-12"
                   >
-                    <h2 className="text-white text-2xl font-bold mb-6" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
-                      ABOUT ME
-                    </h2>
-                    <p className="text-gray-400 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
+                    <h2 className="text-white text-2xl font-bold mb-6">ABOUT ME</h2>
+                    <p className="text-gray-400 leading-relaxed">
                       Code is poetry. I write mine with purpose, performance, and people in mind.
                       When I’m not coding, I’m lost in a book. Good stories make better developers — got a favorite? Recommend it.
                     </p>
@@ -194,9 +196,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.3 }}
                   >
-                    <h2 className="text-white text-2xl font-bold mb-6" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}>
-                      GET IN TOUCH
-                    </h2>
+                    <h2 className="text-white text-2xl font-bold mb-6">GET IN TOUCH</h2>
                     <ContactForm />
                   </motion.div>
                 </div>
