@@ -1,6 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+  const serviceID = 'service_6sma3sh';
+  const templateID = 'template_j536q05';
+  const publicKey = 'k-vw1CyF3j0S-pf4T';
+
+  const formRef = useRef();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,24 +63,30 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
-    // Simulate form submission
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
       setSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
       setErrors({});
     } catch (error) {
-      console.error('Submission error:', error);
+      console.log('EmailJS Error:', error);
+      alert('Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);
-    }
+    } 
   };
 
   if (submitted) {
@@ -124,77 +137,77 @@ const ContactForm = () => {
           SEND MESSAGE
         </h3>
         
-        <div className="space-y-6">
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Your Name"
-              className={`w-full bg-transparent border ${
-                errors.name ? 'border-red-500' : 'border-gray-800'
-              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
-                errors.name ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              } hover:border-cyan-400/30`}
-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-            />
-            {errors.name && (
-              <p className="text-red-400 text-sm mt-1 px-1">{errors.name}</p>
-            )}
-          </div>
+        <form ref={formRef} onSubmit={handleSubmit} className='space-y-6'>
+            <div>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Your Name"
+                className={`w-full bg-transparent border ${
+                  errors.name ? 'border-red-500' : 'border-gray-800'
+                } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
+                  errors.name ? 'focus:border-red-400' : 'focus:border-cyan-400'
+                } hover:border-cyan-400/30`}
+                style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+              />
+              {errors.name && (
+                <p className="text-red-400 text-sm mt-1 px-1">{errors.name}</p>
+              )}
+            </div>
 
-          <div>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Your Email"
-              className={`w-full bg-transparent border ${
-                errors.email ? 'border-red-500' : 'border-gray-800'
-              } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
-                errors.email ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              } hover:border-cyan-400/30`}
-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-            />
-            {errors.email && (
-              <p className="text-red-400 text-sm mt-1 px-1">{errors.email}</p>
-            )}
-          </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Your Email"
+                className={`w-full bg-transparent border ${
+                  errors.email ? 'border-red-500' : 'border-gray-800'
+                } text-white placeholder-gray-400 px-4 py-4 focus:outline-none transition-all duration-300 ${
+                  errors.email ? 'focus:border-red-400' : 'focus:border-cyan-400'
+                } hover:border-cyan-400/30`}
+                style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+              />
+              {errors.email && (
+                <p className="text-red-400 text-sm mt-1 px-1">{errors.email}</p>
+              )}
+            </div>
 
-          <div>
-            <textarea
-              rows={4}
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="Your Message"
-              className={`w-full bg-transparent border ${
-                errors.message ? 'border-red-500' : 'border-gray-800'
-              } text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-all duration-300 ${
-                errors.message ? 'focus:border-red-400' : 'focus:border-cyan-400'
-              } hover:border-cyan-400/30`}
-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-            />
-            {errors.message && (
-              <p className="text-red-400 text-sm mt-1 px-1">{errors.message}</p>
-            )}
-          </div>
+            <div>
+              <textarea
+                rows={4}
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Your Message"
+                className={`w-full bg-transparent border ${
+                  errors.message ? 'border-red-500' : 'border-gray-800'
+                } text-white placeholder-gray-400 px-4 py-3 focus:outline-none resize-none transition-all duration-300 ${
+                  errors.message ? 'focus:border-red-400' : 'focus:border-cyan-400'
+                } hover:border-cyan-400/30`}
+                style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+              />
+              {errors.message && (
+                <p className="text-red-400 text-sm mt-1 px-1">{errors.message}</p>
+              )}
+            </div>
 
-          <button
-            onClick={handleSubmit}
-            disabled={isSubmitting}
-            className={`w-full font-bold py-5 transition-all duration-300 ${
-              isSubmitting 
-                ? 'bg-gray-600 text-gray-300 cursor-not-allowed' 
-                : 'bg-transparent backdrop-blur-sm border-2 border-gray-800 text-white hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/10 hover:text-cyan-400'
-            }`}
-            style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-          >
-            {isSubmitting ? 'SUBMITTING...' : 'SUBMIT NOW'}
-          </button>
-        </div>
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className={`w-full font-bold py-5 transition-all duration-300 ${
+                isSubmitting 
+                  ? 'bg-gray-600 text-gray-300 cursor-not-allowed' 
+                  : 'bg-transparent backdrop-blur-sm border-2 border-gray-800 text-white hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/10 hover:text-cyan-400'
+              }`}
+              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+            >
+              {isSubmitting ? 'SUBMITTING...' : 'SUBMIT NOW'}
+            </button>
+        </form>
       </div>
     </div>
   );

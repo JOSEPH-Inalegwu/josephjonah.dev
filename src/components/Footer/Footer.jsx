@@ -7,13 +7,13 @@ const Footer = () => {
     {
       id: 1,
       icon: <FaGithub className="w-6 h-6" />,
-      href: "#",
+      href: "https://github.com/JOSEPH-Inalegwu",
       label: "GitHub"
     },
     {
       id: 2,
       icon: <FaLinkedinIn className="w-6 h-6" />,
-      href: "#",
+      href: "https://www.linkedin.com/in/joseph-jonah",
       label: "LinkedIn"
     },
     {
@@ -50,6 +50,8 @@ const Footer = () => {
                 <a
                   key={social.id}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-3 bg-transparent border-2 border-gray-800 rounded-xs transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-lg hover:shadow-cyan-400/10"
                   aria-label={social.label}
                 >
