@@ -204,25 +204,30 @@ const AppWithLoader = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Show Loading Screen */}
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
 
-      <ScrollToTop />
+      {/* Show main site only when loading is done */}
+      {!isLoading && (
+        <>
+          <ScrollToTop />
+          <Navbar />
 
-      {/* ⬇️ Navbar stays outside the fading wrapper */}
-      <Navbar />
-
-      <div className={`transition-all duration-1000 ${isLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-        <Hero />
-        <Services />
-        <About />
-        <EducationSkills />
-        <Projects />
-        <Contact />
-        <TechMarquee />
-        <Footer />
-      </div>
+          <div className="transition-all duration-1000 opacity-100 scale-100">
+            <Hero />
+            <Services />
+            <About />
+            <EducationSkills />
+            <Projects />
+            <Contact />
+            <TechMarquee />
+            <Footer />
+          </div>
+        </>
+      )}
     </div>
   );
 };
+
 
 export default AppWithLoader;
