@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import BlurText from '../ReactBits/BlurText/BlurText';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { FaPlay, FaExternalLinkAlt, FaGithub, FaEye, FaCode, FaArrowRight } from 'react-icons/fa';
@@ -237,9 +238,13 @@ const Projects = () => {
           <h3 className="text-cyan-400 text-lg font-semibold mb-4 tracking-wider">
             MY RECENT PORTFOLIO
           </h3>
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-           Spark Your Brand's Story Through Visionary Web Design
-          </h2>
+          <BlurText
+            text="Spark Your Brand's Story Through Visionary Web Design"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10"
+          />
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Explore my latest projects showcasing modern web development, 
             innovative solutions, and cutting-edge technologies.
