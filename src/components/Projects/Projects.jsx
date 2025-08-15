@@ -53,7 +53,7 @@ const Projects = () => {
         "AI/ML APIs","Vercel","Git & GitHub"
       ],
 
-      image: "https://cdn.shopify.com/s/files/1/0070/7032/files/best-web-design-3.png?v=1691010811",
+      image: "/scholaris.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
       liveUrl: "https://scholaris-nsuk.vercel.app",
       githubUrl: "https://github.com/JOSEPH-Inalegwu/scholaris-app",

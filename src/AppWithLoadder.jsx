@@ -95,7 +95,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               </div>
             </div>
 
-            <h1 className="text-4xl font-bold text-white mb-2 animate-fade-in-up">Joseph I. Jonah</h1>
+            <h1 className="text-4xl font-bold text-white mb-2 animate-fade-in-up">Inalegwu Joseph Jonah</h1>
             <p className="text-cyan-400 text-lg font-medium animate-fade-in-up-delayed">Crafting Digital Experiences</p>
           </div>
         </div>
