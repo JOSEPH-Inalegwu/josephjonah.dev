@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed top-0 w-full z-50 transition-transform duration-300 ease-in-out ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="bg-gray-900 mx-0 md:mx-3 lg:mx-30 p-2 md:p-0 flex items-center justify-between">
+        <div className="bg-gray-900 p-2 md:p-0 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center">
@@ -83,11 +83,11 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="#home" hasDropdown={true}>HOME</NavLink>
+            <NavLink href="#home" hasDropdown={false}>HOME</NavLink>
             <NavLink href="#about">ABOUT</NavLink>
             <NavLink href="#services">SERVICES</NavLink>
             <NavLink href="#projects">PROJECTS</NavLink>
-            <NavLink href="#blog" hasDropdown={true}>BLOG</NavLink>
+            <NavLink href="#blog" hasDropdown={false}>BLOG</NavLink>
           <NavLink href="#contact">CONTACT</NavLink>
           </div>
 

@@ -4,89 +4,216 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: 'WEB DEVELOPMENT',
-      description: 'I build new websites that provide your visitors with a smooth, enjoyable experience on phones, tablets, and desktops. My goal is to create sites that are easy to use, professional, and impressive—helping you keep visitors engaged and grow your business effectively across all devices.',
+      title: 'FULLSTACK WEB DEVELOPMENT',
+      description: 'I build complete web applications from frontend to backend. Using modern frameworks like React/Next.js for the frontend and Supabase for database and authentication, I create scalable, secure applications that handle everything from user interfaces to data management seamlessly.',
       icon: (
-        <div className="relative w-16 h-16 mx-auto mb-6 group">
-          {/* 3D Cube Container */}
-          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotate-12">
-            {/* Main Cube Face */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg shadow-2xl transform perspective-1000 rotateX-15 rotateY-15 animate-float">
-              {/* Top Face */}
-              <div className="absolute -top-2 -left-2 w-full h-full bg-gradient-to-br from-cyan-300 to-cyan-400 rounded-lg transform -skew-x-12 -skew-y-12 opacity-80"></div>
-              {/* Right Face */}
-              <div className="absolute -top-2 -right-2 w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg transform skew-x-12 -skew-y-12 opacity-70"></div>
-              {/* Front Face Content */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center text-white">
-                <div className="text-2xl font-bold">&lt;/&gt;</div>
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotateY-12">
+            {/* Stack of Layers representing Full Stack */}
+            <div className="absolute inset-0 animate-float-stack">
+              {/* Frontend Layer */}
+              <div className="absolute top-0 left-1/2 w-16 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded transform -translate-x-1/2 shadow-xl">
+                <div className="absolute -top-1 -left-1 w-full h-full bg-gradient-to-r from-cyan-300 to-blue-400 rounded transform -skew-y-3 opacity-70"></div>
+                <div className="relative z-10 flex items-center justify-center h-full">
+                  <span className="text-xs font-bold text-white">UI</span>
+                </div>
+              </div>
+              {/* Backend Layer */}
+              <div className="absolute top-6 left-1/2 w-16 h-4 bg-gradient-to-r from-emerald-400 to-green-500 rounded transform -translate-x-1/2 shadow-xl">
+                <div className="absolute -top-1 -left-1 w-full h-full bg-gradient-to-r from-emerald-300 to-green-400 rounded transform -skew-y-3 opacity-70"></div>
+                <div className="relative z-10 flex items-center justify-center h-full">
+                  <span className="text-xs font-bold text-white">API</span>
+                </div>
+              </div>
+              {/* Database Layer */}
+              <div className="absolute top-12 left-1/2 w-16 h-4 bg-gradient-to-r from-purple-400 to-indigo-500 rounded transform -translate-x-1/2 shadow-xl">
+                <div className="absolute -top-1 -left-1 w-full h-full bg-gradient-to-r from-purple-300 to-indigo-400 rounded transform -skew-y-3 opacity-70"></div>
+                <div className="relative z-10 flex items-center justify-center h-full">
+                  <span className="text-xs font-bold text-white">DB</span>
+                </div>
               </div>
             </div>
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-cyan-400 rounded-lg blur-xl opacity-20 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-emerald-400 to-purple-400 rounded-lg blur-xl opacity-20 animate-pulse-glow"></div>
           </div>
         </div>
       )
     },
     {
       id: 2,
-      title: 'COMMUNITY IMPACT',
-      description: 'I volunteer my frontend development skills to help non-profit organizations and community projects improve their websites. This work lets me grow and learn while supporting causes that matter. By focusing on nonprofits, I contribute to making their web presence stronger and more effective for their mission.',
+      title: 'REAL-TIME APPLICATIONS',
+      description: 'I create dynamic applications with live features like instant messaging, collaborative editing, and live updates. Using Supabase real-time subscriptions, I build experiences where users see changes immediately without refreshing the page.',
       icon: (
-        <div className="relative w-16 h-16 mx-auto mb-6 group">
-          {/* 3D Heart/Diamond Container */}
-          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotate-y-12">
-            {/* Heart Shape */}
-            <div className="absolute inset-0 animate-bounce-slow">
-              <div className="relative w-full h-full">
-                {/* Heart Top Left */}
-                <div className="absolute top-2 left-2 w-6 h-6 bg-gradient-to-br from-pink-400 to-red-500 rounded-full transform rotate-45 shadow-lg"></div>
-                {/* Heart Top Right */}
-                <div className="absolute top-2 right-2 w-6 h-6 bg-gradient-to-br from-pink-400 to-red-500 rounded-full transform rotate-45 shadow-lg"></div>
-                {/* Heart Bottom */}
-                <div className="absolute top-6 left-1/2 w-8 h-8 bg-gradient-to-br from-pink-400 to-red-500 transform -translate-x-1/2 rotate-45 shadow-lg"></div>
-                {/* 3D Effect Layers */}
-                <div className="absolute top-1 left-1 w-6 h-6 bg-gradient-to-br from-pink-300 to-pink-400 rounded-full transform rotate-45 opacity-80"></div>
-                <div className="absolute top-1 right-1 w-6 h-6 bg-gradient-to-br from-pink-300 to-pink-400 rounded-full transform rotate-45 opacity-80"></div>
-                <div className="absolute top-5 left-1/2 w-8 h-8 bg-gradient-to-br from-pink-300 to-pink-400 transform -translate-x-1/2 rotate-45 opacity-80"></div>
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotate-12">
+            {/* Lightning Bolt with Pulse Effects */}
+            <div className="absolute inset-0 animate-lightning">
+              {/* Main Lightning Bolt */}
+              <div className="absolute top-2 left-1/2 w-3 h-6 bg-gradient-to-b from-yellow-300 to-yellow-500 transform -translate-x-1/2 clip-path-lightning shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-yellow-200 to-yellow-400 clip-path-lightning opacity-80"></div>
+              </div>
+              <div className="absolute top-7 left-1/2 w-4 h-6 bg-gradient-to-b from-yellow-400 to-orange-500 transform -translate-x-1/2 translate-x-1 clip-path-lightning shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-yellow-300 to-orange-400 clip-path-lightning opacity-80"></div>
+              </div>
+              <div className="absolute top-12 left-1/2 w-3 h-4 bg-gradient-to-b from-orange-400 to-red-500 transform -translate-x-1/2 clip-path-lightning shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-orange-300 to-red-400 clip-path-lightning opacity-80"></div>
               </div>
             </div>
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-pink-400 rounded-full blur-xl opacity-25 animate-pulse"></div>
+            {/* Pulse Circles */}
+            <div className="absolute top-1/2 left-1/2 w-8 h-8 border-2 border-yellow-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping-slow opacity-60"></div>
+            <div className="absolute top-1/2 left-1/2 w-12 h-12 border-2 border-yellow-300 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping-slower opacity-40"></div>
+            <div className="absolute top-1/2 left-1/2 w-16 h-16 border-2 border-yellow-200 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-ping-slowest opacity-20"></div>
+            <div className="absolute inset-0 bg-yellow-400 rounded-lg blur-xl opacity-25 animate-pulse-glow"></div>
           </div>
         </div>
       )
     },
     {
       id: 3,
-      title: 'WEB STYLING & OPTIMIZATION',
-      description: "Visitors leave your website immediately because it's slow and hard to use on phones. They get frustrated waiting for pages to load or struggling with confusing navigation. I fix these issues by making your site fast, easy to use, and visually appealing on all devices.",
+      title: 'DATABASE ARCHITECTURE',
+      description: 'I design and implement robust database structures using Supabase PostgreSQL. From user management and role-based access control to complex data relationships and optimized queries, I ensure your data is organized, secure, and performs efficiently.',
       icon: (
-        <div className="relative w-16 h-16 mx-auto mb-6 group">
-          {/* 3D Rocket Container */}
-          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2">
-            {/* Rocket Body */}
-            <div className="absolute inset-0 animate-hover">
-              {/* Main Rocket */}
-              <div className="absolute top-0 left-1/2 w-6 h-12 bg-gradient-to-b from-cyan-300 to-cyan-500 rounded-t-full transform -translate-x-1/2 shadow-lg"></div>
-              {/* Rocket Fins */}
-              <div className="absolute top-8 left-3 w-3 h-4 bg-gradient-to-br from-blue-400 to-blue-600 transform rotate-12 shadow-md"></div>
-              <div className="absolute top-8 right-3 w-3 h-4 bg-gradient-to-br from-blue-400 to-blue-600 transform -rotate-12 shadow-md"></div>
-              {/* Rocket Window */}
-              <div className="absolute top-2 left-1/2 w-3 h-3 bg-gradient-to-br from-white to-gray-200 rounded-full transform -translate-x-1/2 shadow-inner"></div>
-              {/* Flame Effect */}
-              <div className="absolute top-12 left-1/2 w-4 h-6 transform -translate-x-1/2">
-                <div className="w-full h-full bg-gradient-to-b from-orange-400 via-red-500 to-yellow-400 rounded-b-full animate-flicker opacity-80"></div>
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-orange-300 via-red-400 to-yellow-300 rounded-b-full animate-flicker-delayed opacity-60"></div>
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotateX-12">
+            {/* Database Cylinder Stack */}
+            <div className="absolute inset-0 animate-db-rotate">
+              {/* Top Cylinder */}
+              <div className="absolute top-0 left-1/2 w-14 h-5 transform -translate-x-1/2">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full shadow-lg"></div>
+                <div className="absolute -top-1 inset-x-0 h-3 bg-gradient-to-r from-indigo-300 to-purple-400 rounded-full opacity-80"></div>
               </div>
-              {/* 3D Effect Shadow */}
-              <div className="absolute top-1 left-1/2 w-6 h-12 bg-gradient-to-b from-cyan-200 to-cyan-400 rounded-t-full transform -translate-x-1/2 -translate-y-0.5 opacity-60"></div>
+              {/* Middle Cylinder */}
+              <div className="absolute top-4 left-1/2 w-14 h-5 transform -translate-x-1/2">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full shadow-lg"></div>
+                <div className="absolute -top-1 inset-x-0 h-3 bg-gradient-to-r from-purple-300 to-pink-400 rounded-full opacity-80"></div>
+              </div>
+              {/* Bottom Cylinder */}
+              <div className="absolute top-8 left-1/2 w-14 h-5 transform -translate-x-1/2">
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-red-500 rounded-full shadow-lg"></div>
+                <div className="absolute -top-1 inset-x-0 h-3 bg-gradient-to-r from-pink-300 to-red-400 rounded-full opacity-80"></div>
+              </div>
+              {/* Connection Lines */}
+              <div className="absolute top-6 left-1/2 w-0.5 h-6 bg-gradient-to-b from-cyan-400 to-transparent transform -translate-x-1/2 animate-data-flow"></div>
+              <div className="absolute top-6 left-1/2 w-0.5 h-6 bg-gradient-to-b from-transparent to-cyan-400 transform -translate-x-1/2 animate-data-flow-reverse"></div>
             </div>
-            {/* Speed Lines */}
-            <div className="absolute top-4 -left-2 w-8 h-0.5 bg-gradient-to-r from-transparent to-cyan-400 animate-speed-line opacity-60"></div>
-            <div className="absolute top-6 -left-3 w-10 h-0.5 bg-gradient-to-r from-transparent to-cyan-400 animate-speed-line-delayed opacity-40"></div>
-            <div className="absolute top-8 -left-2 w-6 h-0.5 bg-gradient-to-r from-transparent to-cyan-400 animate-speed-line opacity-50"></div>
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-cyan-400 rounded-full blur-xl opacity-20 animate-pulse"></div>
+            {/* Data Particles */}
+            <div className="absolute top-2 left-8 w-1 h-1 bg-cyan-400 rounded-full animate-particle-1"></div>
+            <div className="absolute top-6 right-8 w-1 h-1 bg-cyan-400 rounded-full animate-particle-2"></div>
+            <div className="absolute top-10 left-6 w-1 h-1 bg-cyan-400 rounded-full animate-particle-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-lg blur-xl opacity-20 animate-pulse-glow"></div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 4,
+      title: 'AUTHENTICATION & SECURITY',
+      description: 'I implement secure user authentication systems with Supabase Auth. From social logins and email verification to role-based permissions and row-level security, I ensure your application protects user data while providing smooth login experiences.',
+      icon: (
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotateY-15">
+            {/* Shield with Lock */}
+            <div className="absolute inset-0 animate-shield-pulse">
+              {/* Shield Shape */}
+              <div className="absolute top-1 left-1/2 w-12 h-14 bg-gradient-to-b from-emerald-400 to-green-600 transform -translate-x-1/2 rounded-t-full rounded-b-lg shadow-2xl">
+                <div className="absolute inset-1 bg-gradient-to-b from-emerald-300 to-green-500 rounded-t-full rounded-b-lg"></div>
+                {/* Lock Icon */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-4 h-3 border-2 border-white rounded-t-full"></div>
+                  <div className="w-6 h-4 bg-white rounded mt-1 relative">
+                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-green-600 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                  </div>
+                </div>
+              </div>
+              {/* 3D Effect */}
+              <div className="absolute top-0 left-1/2 w-12 h-14 bg-gradient-to-b from-emerald-300 to-green-500 transform -translate-x-1/2 -translate-y-1 rounded-t-full rounded-b-lg opacity-60"></div>
+            </div>
+            {/* Security Rings */}
+            <div className="absolute top-1/2 left-1/2 w-16 h-16 border-2 border-emerald-400 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin-slow opacity-50"></div>
+            <div className="absolute top-1/2 left-1/2 w-20 h-20 border border-emerald-300 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin-reverse opacity-30"></div>
+            <div className="absolute inset-0 bg-emerald-400 rounded-lg blur-xl opacity-20 animate-pulse-glow"></div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 5,
+      title: 'PERFORMANCE OPTIMIZATION',
+      description: 'I optimize applications for speed and efficiency using modern techniques like code splitting, lazy loading, and database query optimization. Your users get fast-loading pages and smooth interactions, while your hosting costs stay low through efficient resource usage.',
+      icon: (
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2">
+            {/* Rocket with Flame Trail */}
+            <div className="absolute inset-0 animate-rocket-boost">
+              {/* Main Rocket Body */}
+              <div className="absolute top-2 left-1/2 w-6 h-12 bg-gradient-to-b from-cyan-300 to-cyan-600 rounded-t-full transform -translate-x-1/2 shadow-xl">
+                <div className="absolute inset-1 bg-gradient-to-b from-cyan-200 to-cyan-500 rounded-t-full"></div>
+                {/* Window */}
+                <div className="absolute top-2 left-1/2 w-2 h-2 bg-gradient-to-br from-white to-blue-100 rounded-full transform -translate-x-1/2 shadow-inner"></div>
+                {/* Fins */}
+                <div className="absolute top-8 left-0 w-2 h-3 bg-gradient-to-br from-blue-400 to-blue-700 transform rotate-12 rounded-sm"></div>
+                <div className="absolute top-8 right-0 w-2 h-3 bg-gradient-to-br from-blue-400 to-blue-700 transform -rotate-12 rounded-sm"></div>
+              </div>
+              {/* Flame Trail */}
+              <div className="absolute top-14 left-1/2 w-4 h-8 transform -translate-x-1/2">
+                <div className="w-full h-full bg-gradient-to-b from-orange-400 via-red-500 to-yellow-400 rounded-b-full animate-flame-flicker opacity-90"></div>
+                <div className="absolute inset-0 w-3/4 h-full bg-gradient-to-b from-orange-300 via-red-400 to-yellow-300 rounded-b-full animate-flame-flicker-delayed opacity-70 mx-auto"></div>
+                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-b from-orange-200 via-red-300 to-yellow-200 rounded-b-full animate-flame-core opacity-80 mx-auto"></div>
+              </div>
+              {/* 3D Shadow */}
+              <div className="absolute top-1 left-1/2 w-6 h-12 bg-gradient-to-b from-cyan-200 to-cyan-500 rounded-t-full transform -translate-x-1/2 -translate-y-1 opacity-40"></div>
+            </div>
+            {/* Speed Streaks */}
+            <div className="absolute top-6 -left-4 w-10 h-0.5 bg-gradient-to-r from-transparent to-cyan-400 animate-speed-streak opacity-70"></div>
+            <div className="absolute top-8 -left-6 w-12 h-0.5 bg-gradient-to-r from-transparent to-cyan-300 animate-speed-streak-delayed opacity-50"></div>
+            <div className="absolute top-10 -left-4 w-8 h-0.5 bg-gradient-to-r from-transparent to-cyan-400 animate-speed-streak-alt opacity-60"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-orange-400 to-yellow-400 rounded-lg blur-xl opacity-20 animate-pulse-glow"></div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 6,
+      title: 'API INTEGRATION',
+      description: 'I connect your applications to external services and APIs seamlessly. Whether integrating payment processors, social media platforms, or third-party services, I ensure reliable data flow and error handling for robust, connected applications.',
+      icon: (
+        <div className="relative w-20 h-20 mx-auto mb-6 group">
+          <div className="relative w-full h-full transform-gpu transition-all duration-700 group-hover:scale-110 group-hover:rotateZ-12">
+            {/* Network Nodes */}
+            <div className="absolute inset-0 animate-network-pulse">
+              {/* Central Hub */}
+              <div className="absolute top-1/2 left-1/2 w-6 h-6 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-2xl z-20">
+                <div className="absolute inset-1 bg-gradient-to-br from-purple-300 to-indigo-500 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+              </div>
+              
+              {/* Surrounding Nodes */}
+              <div className="absolute top-2 left-1/2 w-4 h-4 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full transform -translate-x-1/2 shadow-lg z-10">
+                <div className="absolute inset-0.5 bg-gradient-to-br from-cyan-300 to-blue-500 rounded-full"></div>
+              </div>
+              <div className="absolute top-1/2 right-2 w-4 h-4 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full transform -translate-y-1/2 shadow-lg z-10">
+                <div className="absolute inset-0.5 bg-gradient-to-br from-green-300 to-emerald-500 rounded-full"></div>
+              </div>
+              <div className="absolute bottom-2 left-1/2 w-4 h-4 bg-gradient-to-br from-orange-400 to-red-600 rounded-full transform -translate-x-1/2 shadow-lg z-10">
+                <div className="absolute inset-0.5 bg-gradient-to-br from-orange-300 to-red-500 rounded-full"></div>
+              </div>
+              <div className="absolute top-1/2 left-2 w-4 h-4 bg-gradient-to-br from-pink-400 to-purple-600 rounded-full transform -translate-y-1/2 shadow-lg z-10">
+                <div className="absolute inset-0.5 bg-gradient-to-br from-pink-300 to-purple-500 rounded-full"></div>
+              </div>
+              
+              {/* Connection Lines */}
+              <div className="absolute top-4 left-1/2 w-0.5 h-6 bg-gradient-to-b from-cyan-400 to-purple-400 transform -translate-x-1/2 animate-data-pulse z-0"></div>
+              <div className="absolute top-1/2 right-4 w-6 h-0.5 bg-gradient-to-r from-purple-400 to-green-400 transform -translate-y-1/2 animate-data-pulse-delayed z-0"></div>
+              <div className="absolute bottom-4 left-1/2 w-0.5 h-6 bg-gradient-to-t from-orange-400 to-purple-400 transform -translate-x-1/2 animate-data-pulse-alt z-0"></div>
+              <div className="absolute top-1/2 left-4 w-6 h-0.5 bg-gradient-to-l from-purple-400 to-pink-400 transform -translate-y-1/2 animate-data-pulse-reverse z-0"></div>
+            </div>
+            
+            {/* Data Flow Particles */}
+            <div className="absolute top-3 left-1/2 w-1 h-1 bg-cyan-300 rounded-full animate-flow-down transform -translate-x-1/2"></div>
+            <div className="absolute top-1/2 right-3 w-1 h-1 bg-green-300 rounded-full animate-flow-left transform -translate-y-1/2"></div>
+            <div className="absolute bottom-3 left-1/2 w-1 h-1 bg-orange-300 rounded-full animate-flow-up transform -translate-x-1/2"></div>
+            <div className="absolute top-1/2 left-3 w-1 h-1 bg-pink-300 rounded-full animate-flow-right transform -translate-y-1/2"></div>
+            
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-cyan-400 to-green-400 rounded-lg blur-xl opacity-20 animate-pulse-glow"></div>
           </div>
         </div>
       )
@@ -95,76 +222,6 @@ const Services = () => {
 
   return (
     <>
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotateX(15deg) rotateY(15deg); }
-          50% { transform: translateY(-10px) rotateX(15deg) rotateY(15deg); }
-        }
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-8px) scale(1.05); }
-        }
-        @keyframes hover {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
-        }
-        @keyframes flicker {
-          0%, 100% { opacity: 0.8; transform: scaleY(1); }
-          25% { opacity: 1; transform: scaleY(1.1); }
-          50% { opacity: 0.6; transform: scaleY(0.9); }
-          75% { opacity: 0.9; transform: scaleY(1.05); }
-        }
-        @keyframes flicker-delayed {
-          0%, 100% { opacity: 0.6; transform: scaleY(0.9); }
-          25% { opacity: 0.8; transform: scaleY(1.05); }
-          50% { opacity: 0.4; transform: scaleY(0.8); }
-          75% { opacity: 0.7; transform: scaleY(1); }
-        }
-        @keyframes speed-line {
-          0% { opacity: 0; transform: translateX(-20px); }
-          50% { opacity: 0.6; }
-          100% { opacity: 0; transform: translateX(20px); }
-        }
-        @keyframes speed-line-delayed {
-          0% { opacity: 0; transform: translateX(-25px); }
-          60% { opacity: 0.4; }
-          100% { opacity: 0; transform: translateX(25px); }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 2s ease-in-out infinite;
-        }
-        .animate-hover {
-          animation: hover 2.5s ease-in-out infinite;
-        }
-        .animate-flicker {
-          animation: flicker 0.8s ease-in-out infinite;
-        }
-        .animate-flicker-delayed {
-          animation: flicker-delayed 0.8s ease-in-out infinite 0.2s;
-        }
-        .animate-speed-line {
-          animation: speed-line 2s ease-in-out infinite;
-        }
-        .animate-speed-line-delayed {
-          animation: speed-line-delayed 2s ease-in-out infinite 0.5s;
-        }
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .rotateX-15 {
-          transform: rotateX(15deg);
-        }
-        .rotateY-15 {
-          transform: rotateY(15deg);
-        }
-        .rotate-y-12 {
-          transform: rotateY(12deg);
-        }
-      `}</style>
-
       <section id='services'
         className="text-white mt-10 py-20 px-2 md:px-12 lg:px-24"
       >
@@ -172,34 +229,52 @@ const Services = () => {
           {/* Header Section */}
           <div className="text-center mb-16">
             <h3 className="text-cyan-400 md:text-lg font-semibold mb-4 tracking-wider">
-              MY SERVICE
+              MY SERVICES
             </h3>
-            <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-            Design should speak. Interactions should serve — I build both.
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-3xl mx-auto mb-10">
+              Building Complete Digital Solutions — From Frontend to Database
             </h2>
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 px-2 gap-y-8 md:gap-y-0 md:px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-2">
             {services.map((service) => (
               <div
                 key={service.id}
-                className="relative group text-center bg-transparent backdrop-blur-sm border-2 border-gray-800 rounded-xs p-5 transition-all duration-300 hover:-translate-y-2 h-full hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/10"
+                className="relative group text-center bg-transparent backdrop-blur-sm border-2 border-gray-800 rounded-xl p-6 transition-all duration-500 hover:-translate-y-3 hover:translate-x-1 h-full hover:border-cyan-400/40 hover:shadow-2xl hover:shadow-cyan-400/20 transform-gpu perspective-1000"
+                style={{
+                  transform: 'rotateX(5deg) rotateY(-2deg)',
+                  transformOrigin: 'center center',
+                  backfaceVisibility: 'hidden'
+                }}
               >
+                {/* 3D Card Background Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50 rounded-xl transform translate-x-1 translate-y-1 -z-10 transition-all duration-500 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:bg-gradient-to-br group-hover:from-cyan-900/20 group-hover:via-blue-900/10 group-hover:to-purple-900/20"></div>
+                
+                {/* Card Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/0 to-cyan-400/0 rounded-xl transition-all duration-500 group-hover:from-cyan-400/10 group-hover:via-cyan-400/5 group-hover:to-purple-400/10 -z-5"></div>
+                
+                {/* Top Edge Highlight */}
+                <div className="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
                 {/* Icon */}
-                <div className="my-5">
+                <div className="my-6 relative z-10">
                   {service.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-all duration-300 relative z-10">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-200 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 relative z-10">
                   {service.description}
                 </p>
+
+                {/* Bottom Corner Accent */}
+                <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-cyan-400/20 rounded-br-lg group-hover:border-cyan-400/50 transition-colors duration-500"></div>
+                <div className="absolute top-2 left-2 w-8 h-8 border-l-2 border-t-2 border-cyan-400/20 rounded-tl-lg group-hover:border-cyan-400/50 transition-colors duration-500"></div>
               </div>
             ))}
           </div>

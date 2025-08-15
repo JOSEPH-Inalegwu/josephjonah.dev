@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import TextType from '../ReactBits/TextType/TextType';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiDownload2Line } from "react-icons/ri";
 
@@ -15,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id='home' className="hero-animated-background h-[calc(100vh-10%)] text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center">
+    <section id='home' className="relative h-[calc(100vh-10%)] text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center hero-animated-background">      
       {/* Animated Background Elements */}
       <div className="orb-1"></div>
       <div className="orb-2"></div>
@@ -35,40 +36,19 @@ const Hero = () => {
         <div className="space-y-6 mt-28 md:mt-10 lg:mt-15">
           <div className="space-y-5">
             <h1 className="sm:text-3xl text-4xl md:text-5xl font-extralight leading-snug uppercase" style={{fontFamily: 'LuckyGuy'}}>
-              HI, I'M JOSEPH
+              HELLO, I'M JOSEPH
               <br />
-              <span className="text-white dark:text-gray-100">CREATIVE</span>
-              <br className="block md:hidden" />
-              <span className="text-white dark:text-gray-100 whitespace-nowrap hidden md:inline"> </span>
-              <span className="text-white dark:text-gray-100">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={roles[index]}
-                    className="text-cyan-400 inline-block ml-1 md:ml-1 origin-bottom"
-                    initial={{ rotateX: 90, opacity: 0 }}
-                    animate={{
-                      rotateX: 0,
-                      opacity: 1,
-                      x: [0, -5, 5, -3, 3, -2, 2, 0], // shake after flip
-                    }}
-                    exit={{ rotateX: -90, opacity: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      ease: "easeInOut",
-                      x: {
-                        delay: 0.6,
-                        duration: 0.4,
-                      },
-                    }}
-                  >
-                    {roles[index]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
+              <TextType 
+                text={["Creative Developer", "Problem Solver", "Lifelong Learner", "User-Focused Dev"]}
+                typingSpeed={75}
+                pauseDuration={1000}
+                showCursor={false}
+                cursorCharacter="|"
+              />
             </h1>
 
             <p className="text-gray-400 text-[16px] md:text-[16px] leading-loose max-w-3xl" style={{fontFamily: 'Mont'}}>
-              Hey there — I'm a frontend developer who enjoys making the web a better (and better-looking) place. I build responsive, accessible, and fast websites that actually work. Friendly to users, solid under the hood, and built with care — that's my style. 
+              I build responsive, accessible websites that work for everyone, including people with disabilities. By integrating AI, I create smarter, more personalized user experiences. My work has increased engagement by over 40%. Check my portfolio to see how I can help you too.
             </p>
           </div>
 
@@ -76,7 +56,7 @@ const Hero = () => {
           <div className="flex gap-6 pt-6">
             <button className='flex items-center gap-x-4 bg-cyan-400 hover:bg-cyan-500 px-6 py-4 md:px-12 md:py-6 text-black font-medium rounded-sm ease-in-out cursor-pointer transition-all duration-300'>
               Download CV
-              <RiDownload2Line />
+              <RiDownload2Line className='animate-bounce' />
             </button>
             <button className='hidden md:flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300'>
               See my Projects
@@ -107,9 +87,9 @@ const Hero = () => {
               <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/50 transition-all duration-700">
                 <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out">
                   <img 
-                    src="/jose.jpg" 
+                    src="/cartoon-dev.jpg" 
                     alt="Joseph Profile" 
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500 filter grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500"
                   />
                   {/* Image overlay with code-like pattern */}
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-400/20 via-transparent to-cyan-400/20 opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
