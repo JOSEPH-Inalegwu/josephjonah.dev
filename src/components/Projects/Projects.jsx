@@ -44,14 +44,18 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Scholaris — AI-Powered Exam Prep",
       category: "Full Stack Development",
-      description: "A modern e-commerce solution built with React, Next.js, and integrated payment systems. Features include user authentication, product management, and real-time inventory tracking.",
-      technologies: ["React", "Next.js", "TypeScript", "Stripe", "MongoDB"],
-      image: "https://cdn.shopify.com/s/files/1/0070/7032/files/best-web-design-3.png?v=1691010811", // Replace with your project image
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your demo video
-      liveUrl: "https://your-project-live-url.com",
-      githubUrl: "https://github.com/yourusername/project",
+      description: "An AI-powered academic platform designed to help students access past questions, take quizzes, simulate CBT exams, and track their GPA. Built with modern web technologies for speed, scalability, and security. Features include AI-generated practice questions, department-based content filtering, user authentication, real-time database updates, and responsive UI for mobile and desktop.",
+      technologies: [
+        "React", "Tailwind CSS", "JavaScript (ES6+)","Supabase (Auth, PostgreSQL, RLS)","PostgreSQL",
+        "AI/ML APIs","Vercel","Git & GitHub"
+      ],
+
+      image: "https://cdn.shopify.com/s/files/1/0070/7032/files/best-web-design-3.png?v=1691010811",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
+      liveUrl: "https://scholaris-nsuk.vercel.app",
+      githubUrl: "https://github.com/JOSEPH-Inalegwu/scholaris-app",
       featured: true
     },
     {

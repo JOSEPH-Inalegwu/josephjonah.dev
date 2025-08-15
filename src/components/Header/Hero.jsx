@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TextType from '../ReactBits/TextType/TextType';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiDownload2Line } from "react-icons/ri";
+import DownloadCVButton from '../Utils/DownloadCVButton';
 
 const roles = ["Dev", "Designer", "Player", "Teammate"];
 
@@ -54,10 +55,7 @@ const Hero = () => {
 
           {/* Action Buttons */}
           <div className="flex gap-6 pt-6">
-            <button className='flex items-center gap-x-4 bg-cyan-400 hover:bg-cyan-500 px-6 py-4 md:px-12 md:py-6 text-black font-medium rounded-sm ease-in-out cursor-pointer transition-all duration-300'>
-              Download CV
-              <RiDownload2Line className='animate-bounce' />
-            </button>
+            <DownloadCVButton />
             <button className='hidden md:flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300'>
               See my Projects
             </button>

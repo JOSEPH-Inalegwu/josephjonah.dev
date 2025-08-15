@@ -120,9 +120,8 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                Nemo design enim ipsam voluptatem quia voluptas sit aspernatur aut odit 
-                aut fugit sed thisnquia consequuntur magni dolores eos designer heresm qui 
-                ratione
+                My philosophy is simple — build digital experiences that work for everyone.  
+                From responsive layouts to accessible design, my projects have improved engagement by 40% and reduced load times by 60%, delivering beauty backed by performance.
               </p>
             </motion.div>
 
@@ -154,7 +153,7 @@ const About = () => {
                 variants={imageVariants}
               >
                 <img 
-                  src="/joseph.jpg" 
+                  src="/cartoon-dev.jpg" 
                   alt="Profile" 
                   className="w-full h-auto aspect-[7/9] object-cover"
                 />

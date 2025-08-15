@@ -49,27 +49,63 @@ const EducationSkills = () => {
   };
 
   const skills = [
-    {
-      category: "Frontend Development",
-      items: ["React.js", "Npm", "Tailwind CSS", "JavaScript (ES6+)", "HTML5 & CSS3", "TypeScript", "Responsive Design"]
-    },
-    {
-      category: "Development Tools",
-      items: ["Git & GitHub", "VS Code", "Linux","Vercel, Netlify", "API Integration"]
-    },
-    {
-      category: "Fullstack T3 Journey",
-      items: [
-        "TypeScript",
-        "Next.js (App Router)",
-        "Tailwind CSS",
-        "tRPC",
-        "Prisma",
-        "Zod & Form Validation",
-        "Authentication & Middleware"
-      ]
-    }
-  ];
+  {
+    category: "Frontend Development",
+    items: [
+      "React.js",
+      "Next.js (App Router)",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Tailwind CSS",
+      "HTML5 & CSS3",
+      "Responsive Design",
+      "State Management (useState, useEffect, Context API)",
+      "Form Handling & Validation (Zod, React Hook Form)"
+    ]
+  },
+  {
+    category: "Backend & Database (Supabase Journey)",
+    items: [
+      "Supabase Authentication",
+      "Supabase Storage",
+      "PostgreSQL",
+      "Row Level Security (RLS)",
+      "Real-time Subscriptions",
+      "Database Schema Design",
+      "RESTful API Integration",
+      "Serverless Functions"
+    ]
+  },
+  {
+    category: "Development Tools",
+    items: [
+      "Git & GitHub",
+      "VS Code",
+      "Linux",
+      "Vercel",
+      "Netlify",
+      "API Integration",
+      "Browser DevTools",
+      "Npm & Yarn",
+      "Environment Variables & Configuration"
+    ]
+  },
+  {
+    category: "Diploma in IT",
+    items: [
+      "Microsoft Word (Document Formatting & Styling)",
+      "Microsoft Excel (Formulas, Charts, Data Analysis, Macros)",
+      "Microsoft PowerPoint (Presentation Design)",
+      "Microsoft Access (Database Creation & Queries)",
+      "Basic Networking & Troubleshooting",
+      "Computer Hardware & Software Maintenance",
+      "File Management & Organization",
+      "Internet Research & Email Management",
+      "Collaboration Tools (Google Docs, Sheets, Drive)"
+    ]
+  }
+];
+
 
   const education = [
     {
@@ -82,9 +118,9 @@ const EducationSkills = () => {
     {
       period: "2024 - Present",
       institution: "Self-Paced",
-      degree: "Fullstack T3 Stack Development",
+      degree: "Fullstack Web Development with Supabase",
       status: "Currently Learning",
-      description: "Focused on mastering the modern T3 stack — TypeScript, Tailwind CSS, Next.js, tRPC, and Prisma. Building scalable, type-safe fullstack applications with strong frontend and backend integration."
+      description: "Focused on mastering modern fullstack development with TypeScript, Tailwind CSS, Next.js, and Supabase. Building scalable, type-safe applications with strong frontend and backend integration, leveraging Supabase for authentication, database, and APIs."
     },
     {
       period: "2022 - 2024",
@@ -92,6 +128,13 @@ const EducationSkills = () => {
       degree: "Frontend Development",
       status: "Completed",
       description: "Mastered modern frontend technologies including React, Next.js, and TypeScript through intensive self-study and hands-on projects."
+    },
+    {
+      period: "2021-2022",
+      institution: "Africa InfoTech",
+      degree: 'Diploma in IT',
+      status: 'Completed',
+      description: 'Gained foundational and practical skills in using Microsoft Office Suite (Word, Excel, PowerPoint, Access) and internet applications. Developed problem-solving abilities through IT-related tasks and built a strong understanding of computer systems, productivity tools, and basic networking concepts.'
     }
   ];
 
