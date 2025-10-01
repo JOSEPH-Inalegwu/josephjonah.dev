@@ -53,7 +53,7 @@ const Projects = () => {
         "AI/ML APIs","Vercel","Git & GitHub"
       ],
 
-      image: "/scholaris.png",
+      image: "/scholaris thumbnail.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
       liveUrl: "https://scholaris-nsuk.vercel.app",
       githubUrl: "https://github.com/JOSEPH-Inalegwu/scholaris-app",
@@ -61,10 +61,10 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "Fivestack Team Website",
       category: "Frontend Development",
       description: "An intuitive task management application with drag-and-drop functionality, team collaboration features, and real-time updates using React and Firebase.",
-      technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
+      technologies: ["React", "Framer Motion", "Tailwind CSS", "Vercel"],
       image: "https://niftypm.com/blog/wp-content/uploads/2024/02/Hive-task-management-software-1024x605.png",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       liveUrl: "https://your-project-live-url.com",
@@ -162,7 +162,7 @@ const Projects = () => {
 
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
-              <span className="bg-cyan-400/40 text-gray-700 px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+              <span className="bg-cyan-400/60 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
                 {project.category}
               </span>
             </div>

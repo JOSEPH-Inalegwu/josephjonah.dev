@@ -85,7 +85,7 @@ const Hero = () => {
               <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/50 transition-all duration-700">
                 <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out">
                   <img 
-                    src="/cartoon-dev.jpg" 
+                    src="/Gemini_Generated_Image_e95wa7e95wa7e95w.png" 
                     alt="Joseph Profile" 
                     className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500"
                   />
