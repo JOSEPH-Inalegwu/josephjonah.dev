@@ -85,9 +85,9 @@ const Hero = () => {
               <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/50 transition-all duration-700">
                 <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out">
                   <img 
-                    src="/Gemini_Generated_Image_e95wa7e95wa7e95w.png" 
+                    src="/first-profile.png" 
                     alt="Joseph Profile" 
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500"
+                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500 scale-125"
                   />
                   {/* Image overlay with code-like pattern */}
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-400/20 via-transparent to-cyan-400/20 opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>

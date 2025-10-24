@@ -153,9 +153,9 @@ const About = () => {
                 variants={imageVariants}
               >
                 <img 
-                  src="/cartoon-dev.jpg" 
+                  src="/second-profile.png" 
                   alt="Profile" 
-                  className="w-full h-auto aspect-[7/9] object-cover"
+                  className="w-full h-auto aspect-[7/9] object-cover -scale-x-100"
                 />
               </motion.div>
             </div>
