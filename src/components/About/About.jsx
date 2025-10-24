@@ -126,6 +126,7 @@ const About = () => {
             </motion.div>
 
             <motion.button 
+            onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
               className="bg-custom-blue text-gray-900 px-10 py-5 font-semibold transition-colors duration-300 flex items-center gap-2 rounded-xs hover:bg-blue-600 hover:scale-105"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -133,7 +134,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Learn More
+              View My Work
             </motion.button>
           </motion.div>
 
