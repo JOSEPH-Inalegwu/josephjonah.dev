@@ -87,7 +87,7 @@ const About = () => {
   return (
     <section id='about' className="text-white py-20 px-2 md:px-12 lg:px-24">
       <div className="container mx-auto md:max-w-6xl">
-        <motion.div 
+        <div 
           ref={ref}
           className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center px-3 md:px-6"
           variants={containerVariants}
@@ -95,11 +95,11 @@ const About = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Left Content */}
-          <motion.div 
+          <div 
             className="py-10"
             variants={leftContentVariants}
           >
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -111,21 +111,20 @@ const About = () => {
                 Shaping Aspirations into Vibrant Web Experiences
               </h1>
 
-            </motion.div>
+            </div>
 
-            <motion.div 
+            <div 
               className="mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                My philosophy is simple — build digital experiences that work for everyone.  
-                From responsive layouts to accessible design, my projects have improved engagement by 40% and reduced load times by 60%, delivering beauty backed by performance.
+                I build digital experiences that drive engagement and performance through thoughtful design and clean code.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.button 
+            <button 
             onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
               className="bg-custom-blue text-gray-900 px-10 py-5 font-semibold transition-colors duration-300 flex items-center gap-2 rounded-xs hover:bg-blue-600 hover:scale-105"
               initial={{ opacity: 0, y: 20 }}
@@ -135,21 +134,21 @@ const About = () => {
               whileTap={{ scale: 0.95 }}
             >
               View My Work
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
           {/* Right Image Section */}
-          <motion.div 
+          <div 
             className="relative"
             variants={rightContentVariants}
           >
             {/* Main Image Container with Blue Border */}
             <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-              <motion.div 
+              <div 
                 className="absolute -top-6 -right-6 w-full h-full bg-custom-blue rounded-xs"
                 variants={backgroundVariants}
               />
-              <motion.div 
+              <div 
                 className="relative bg-gray-900 rounded-sm overflow-hidden"
                 variants={imageVariants}
               >
@@ -158,11 +157,11 @@ const About = () => {
                   alt="Profile" 
                   className="w-full h-auto aspect-[7/9] object-cover -scale-x-100"
                 />
-              </motion.div>
+              </div>
             </div>
 
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

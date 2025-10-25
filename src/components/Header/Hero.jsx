@@ -16,6 +16,14 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // WhatsApp CTA handler
+  const handleWhatsAppClick = () => {
+    const whatsappNumber = "2347042482419"; 
+    const message = "Hi Joseph! I'm interested in working together on a project. Let's discuss!";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   return (
     <section id='home' className="relative h-[calc(100vh-10%)] text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center hero-animated-background">      
       {/* Animated Background Elements */}
@@ -56,8 +64,11 @@ const Hero = () => {
           {/* Action Buttons */}
           <div className="flex gap-6 pt-6">
             <DownloadCVButton />
-            <button className='hidden md:flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300'>
-              See my Projects
+            <button 
+              onClick={handleWhatsAppClick}
+              className='md:flex items-center text-white transition-colors duration-300 bg-cyan-400 px-4 rounded-sm py-3 font-semibold hover:bg-cyan-700 cursor-pointer'
+            >
+              Start Your Project
             </button>
           </div>
         </div>

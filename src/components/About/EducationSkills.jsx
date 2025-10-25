@@ -142,7 +142,7 @@ const EducationSkills = () => {
     <section id='education' className="text-white py-20 px-3 md:px-12 lg:px-24">
       <div className="container p-0 mx-auto w-full md:max-w-[96%]">
         {/* Header Section */}
-        <motion.div 
+        <div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -154,9 +154,9 @@ const EducationSkills = () => {
           <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
             Mastering Frontend Artistry with AI-Driven Innovation
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div 
+        <div 
           ref={ref}
           className="grid lg:grid-cols-2 gap-12 items-start"
           variants={containerVariants}relative glowing-border 
@@ -164,7 +164,7 @@ const EducationSkills = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Skills Section - Left Side */}
-          <motion.div 
+          <div 
             className="space-y-8"
             variants={skillVariants}
           >
@@ -173,7 +173,7 @@ const EducationSkills = () => {
             </h3>
             
             {skills.map((skillGroup, index) => (
-              <motion.div 
+              <div 
                 key={index}
                 className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-md p-6 hover:border-cyan-400/50 transition-colors duration-300"
                 initial={{ opacity: 0, y: 20 }}
@@ -193,12 +193,12 @@ const EducationSkills = () => {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Education Section - Right Side */}
-          <motion.div 
+          <div 
             className="space-y-8"
             variants={educationVariants}
           >
@@ -207,7 +207,7 @@ const EducationSkills = () => {
             </h3>
             
             {education.map((edu, index) => (
-              <motion.div 
+              <div 
                 key={index}
                 className="relative bg-gray-800/20 backdrop-blur-sm border-l-4 border-cyan-400 pl-8 pr-6 py-6 rounded-r-lg hover:bg-gray-800/40 transition-colors duration-300"
                 initial={{ opacity: 0, x: 30 }}
@@ -243,11 +243,11 @@ const EducationSkills = () => {
                     {edu.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
 
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
