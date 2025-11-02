@@ -1,165 +1,87 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 const About = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [isInView, setIsInView] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        duration: 0.6
-      }
-    }
-  };
-
-  const leftContentVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -100 
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const rightContentVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: 100 
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8,
-      x: 50
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      transition: {
-        duration: 0.9,
-        ease: "easeOut",
-        delay: 0.2
-      }
-    }
-  };
-
-  const backgroundVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.9,
-      x: 30
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-        delay: 0.4
-      }
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id='about' className="text-white py-20 px-2 md:px-12 lg:px-24">
+    <section id="about" className="text-white py-20 px-2 md:px-12 lg:px-24">
       <div className="container mx-auto md:max-w-6xl">
-        <div 
+        <div
           ref={ref}
-          className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center px-3 md:px-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          className={`grid lg:grid-cols-2 gap-6 lg:gap-12 items-center px-3 md:px-6 transition-opacity duration-700 ${
+            isInView ? "opacity-100" : "opacity-0 translate-y-10"
+          }`}
         >
           {/* Left Content */}
-          <div 
-            className="py-10"
-            variants={leftContentVariants}
+          <div
+            className={`py-10 transition-all duration-700 ${
+              isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
           >
-            <div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <h3 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
+              ABOUT ME
+            </h3>
+            <h1 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
+              Shaping Aspirations into Vibrant Web Experiences
+            </h1>
+
+            <p
+              className={`text-gray-300 text-lg leading-relaxed max-w-md mb-12 transition-all duration-700 delay-200 ${
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
             >
-              <h3 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
-                ABOUT ME
-              </h3>
-              <h1 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-                Shaping Aspirations into Vibrant Web Experiences
-              </h1>
+              I build digital experiences that drive engagement and performance
+              through thoughtful design and clean code.
+            </p>
 
-            </div>
-
-            <div 
-              className="mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                I build digital experiences that drive engagement and performance through thoughtful design and clean code.
-              </p>
-            </div>
-
-            <button 
-            onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
-              className="bg-custom-blue text-gray-900 px-10 py-5 font-semibold transition-colors duration-300 flex items-center gap-2 rounded-xs hover:bg-blue-600 hover:scale-105"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              className={`bg-custom-blue text-gray-900 px-10 py-5 font-semibold transition-all duration-300 flex items-center gap-2 rounded-xs hover:bg-blue-600 hover:scale-105 ${
+                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
             >
               View My Work
             </button>
           </div>
 
           {/* Right Image Section */}
-          <div 
-            className="relative"
-            variants={rightContentVariants}
+          <div
+            className={`relative transition-all duration-700 ${
+              isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
           >
-            {/* Main Image Container with Blue Border */}
             <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto">
-              <div 
-                className="absolute -top-6 -right-6 w-full h-full bg-custom-blue rounded-xs"
-                variants={backgroundVariants}
+              <div
+                className={`absolute -top-6 -right-6 w-full h-full bg-custom-blue rounded-xs transition-all duration-700 delay-300 ${
+                  isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                }`}
               />
-              <div 
-                className="relative bg-gray-900 rounded-sm overflow-hidden"
-                variants={imageVariants}
+              <div
+                className={`relative bg-gray-900 rounded-sm overflow-hidden transition-all duration-700 delay-200 ${
+                  isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                }`}
               >
-                <img 
-                  src="/second-profile.png" 
-                  alt="Profile" 
+                <img
+                  src="/second-profile.png"
+                  alt="Profile"
                   className="w-full h-auto aspect-[7/9] object-cover -scale-x-100"
                 />
               </div>
             </div>
-
           </div>
         </div>
       </div>
