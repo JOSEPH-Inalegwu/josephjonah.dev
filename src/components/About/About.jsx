@@ -28,12 +28,12 @@ const About = () => {
               isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            <h3 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
+            <h2 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
               ABOUT ME
-            </h3>
-            <h1 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
               Shaping Aspirations into Vibrant Web Experiences
-            </h1>
+            </h3>
 
             <p
               className={`text-gray-300 text-lg leading-relaxed max-w-md mb-12 transition-all duration-700 delay-200 ${

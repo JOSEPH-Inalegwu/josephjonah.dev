@@ -14,8 +14,8 @@ const LoadingScreen = ({ onLoadingComplete }) => {
       setShowMainAnimation(false);
       setTimeout(() => {
         onLoadingComplete();
-      }, 400); 
-    }, 1800);
+      }, 200); 
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -55,9 +55,9 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               </div>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-white animate-fade-in-up">
+          <h2 className="text-3xl font-bold text-white animate-fade-in-up">
             Joseph Jonah Inalegwu
-          </h1>
+          </h2>
         </div>
       </div>
 

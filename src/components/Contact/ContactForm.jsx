@@ -325,7 +325,7 @@ const ContactForm = () => {
                   </p>
                 )}
               </div>
-              <span className="text-gray-500 text-xs">
+              <span className="text-gray-400 text-xs">
                 {formData.message.length}/1000
               </span>
             </div>

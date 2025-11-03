@@ -173,7 +173,7 @@ const Projects = () => {
 
             {/* Quick Actions Footer */}
             <div className="flex items-center justify-between pt-2 border-t border-gray-700/50">
-              <div className="flex items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-4 text-sm text-gray-400">
                 <span className="flex items-center gap-1">
                   <FaExternalLinkAlt size={12} />
                   <span className="sr-only">Live demo available</span>

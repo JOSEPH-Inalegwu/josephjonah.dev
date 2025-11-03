@@ -101,12 +101,12 @@ const EducationSkills = () => {
       <div className="container p-0 mx-auto w-full md:max-w-[96%]">
         {/* Header Section */}
         <div className="text-center mb-16 transition-all duration-700 ease-in-out">
-          <h3 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
+          <h2 className="text-cyan-400 text-lg font-semibold mb-6 tracking-wider">
             EDUCATION & SKILLS
-          </h3>
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
-            Mastering Frontend Artistry with AI-Driven Innovation
           </h2>
+          <h3 className="text-3xl md:text-4xl font-bold leading-snug max-w-full md:max-w-2xl mx-auto mb-10">
+            Mastering Frontend Artistry with AI-Driven Innovation
+          </h3>
         </div>
 
         <div

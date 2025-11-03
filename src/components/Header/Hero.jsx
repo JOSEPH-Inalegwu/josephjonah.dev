@@ -116,15 +116,15 @@ const Hero = () => {
                 <div className="w-full h-full transform transition-transform duration-700 ease-out will-change-transform">
                   {/* Optimized Image with better color correction */}
                   <img 
-                    src="/jose.webp" 
+                    src="/joses.webp" 
                     alt="" 
                     className="w-full h-full object-cover group-hover:brightness-105 transition-all duration-500 scale-125"
                     style={{
                       filter: 'saturate(0.9) contrast(1.05) brightness(1.02)',
                       mixBlendMode: 'normal'
                     }}
-                    width="768"
-                    height="768"
+                    width="600"
+                    height="600"
                     loading="eager"
                     fetchpriority="high"
                     decoding="async"
