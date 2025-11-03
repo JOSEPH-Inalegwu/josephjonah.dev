@@ -49,13 +49,13 @@ const Hero = () => {
               <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
                 React
               </span>
-              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+              <span className="px-4 py-2 bg-slate-50/10 border border-slate-50/30 rounded text-slate-50 text-sm font-medium">
                 Next.js
               </span>
-              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+              <span className="px-4 py-2 bg-green-400/10 border border-green-400/30 rounded text-green-300 text-sm font-medium">
                 Supabase
               </span>
-              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+              <span className="px-4 py-2 bg-blue-400/10 border border-blue-400/30 rounded text-blue-300 text-sm font-medium">
                 PostgreSQL
               </span>
             </div>
@@ -83,40 +83,37 @@ const Hero = () => {
 
         {/* Right Section - Optimized Profile Image */}
         <div 
-          className="flex justify-center lg:justify-start relative mt-8 lg:mt-0 lg:ml-28"
+          className="flex justify-center lg:justify-start relative mt-8 lg:mt-5 lg:ml-28 w-full"
           role="img"
           aria-label="Professional portrait of Joseph Jonah Inalegwu, Fullstack Developer"
         >
-          <div className="relative group">
+          <div className="relative group w-full">
             {/* Container with fixed aspect ratio for CLS prevention */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+            <div className="relative w-full aspect-square sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
               
               {/* Ambient Glow - Cooler tones to neutralize yellow */}
               <div 
-                className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 via-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse"
+                className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 via-blue-500/15 to-purple-500/15 blur-3xl animate-pulse"
                 aria-hidden="true"
               ></div>
               
               {/* Rotating Rings */}
               <div 
-                className="absolute inset-0 border-4 border-cyan-400/50 rounded-full animate-spin will-change-transform" 
-                style={{ animationDuration: '25s' }}
+                className="absolute inset-0 border-4 border-cyan-400/50 will-change-transform"
                 aria-hidden="true"
               ></div>
               <div 
-                className="absolute inset-2 border-2 border-blue-400/40 rounded-full animate-spin will-change-transform" 
-                style={{ animationDuration: '20s', animationDirection: 'reverse' }}
+                className="absolute inset-2 border-2 border-blue-400/40 will-change-transform"
                 aria-hidden="true"
               ></div>
               <div 
-                className="absolute inset-4 border-2 border-purple-400/30 rounded-full animate-spin will-change-transform" 
-                style={{ animationDuration: '15s' }}
+                className="absolute inset-4 border-2 border-purple-400/30 will-change-transform" 
                 aria-hidden="true"
               ></div>
 
               {/* Image Container */}
-              <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800/90 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/40 transition-shadow duration-700">
-                <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out will-change-transform">
+              <div className="absolute inset-6 transform overflow-hidden bg-gradient-to-br from-slate-800/90 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/40 transition-shadow duration-700">
+                <div className="w-full h-full transform scale-110 group-hover:scale-125 transition-transform duration-700 ease-out will-change-transform">
                   {/* Optimized Image with better color correction */}
                   <img 
                     src="/first-profile.png" 
@@ -150,11 +147,11 @@ const Hero = () => {
 
               {/* Corner Accents */}
               <div 
-                className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-cyan-400/60 opacity-100 transition-opacity duration-500"
                 aria-hidden="true"
               ></div>
               <div 
-                className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-cyan-400/60 opacity-100 transition-opacity duration-500"
                 aria-hidden="true"
               ></div>
             </div>
