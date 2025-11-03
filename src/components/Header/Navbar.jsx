@@ -17,9 +17,9 @@ const NavLink = ({ href, children }) => (
       className="relative inline-flex items-center space-x-1 font-medium text-white overflow-hidden py-2 transition-colors duration-300 group"
       style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
     >
-      <span className="relative z-10 group-hover:text-cyan-400">{children}</span>
+      <span className="relative z-10 group-hover:white px-2">{children}</span>
       <div
-        className="absolute inset-0 bg-emerald-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+        className="absolute inset-0 bg-cyan-600  origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
       />
     </a>
   </li>
