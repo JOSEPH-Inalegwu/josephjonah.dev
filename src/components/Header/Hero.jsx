@@ -1,34 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import TextType from '../ReactBits/TextType/TextType';
-import { RiDownload2Line } from "react-icons/ri";
+import React from 'react';
 import DownloadCVButton from '../Utils/DownloadCVButton';
 
-const roles = ["Dev", "Designer", "Player", "Teammate"];
-
 const Hero = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % roles.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   const handleWhatsAppClick = () => {
     const whatsappNumber = "2347042482419";
     const message = "Hi Joseph! I'm interested in working together on a project. Let's discuss!";
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
+    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <section 
-      id="home" 
-      className="relative h-[calc(100vh-10%)] text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center hero-animated-background" 
+      id="home"
+      className="relative min-h-screen text-white dark:text-gray-100 pb-20 px-3 md:px-5 lg:px-30 lg:py-32 flex items-center hero-animated-background opacity-0 animate-fade-in"
       aria-labelledby="hero-heading"
-    >      
-      {/* Animated Background (decorative only, so hidden from screen readers) */}
+    >
+      {/* Animated Background Elements (decorative) */}
       <div className="orb-1" aria-hidden="true"></div>
       <div className="orb-2" aria-hidden="true"></div>
       <div className="grid-overlay" aria-hidden="true"></div>
@@ -42,83 +29,160 @@ const Hero = () => {
       <div className="shape-3" aria-hidden="true"></div>
 
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-        
-        {/* Left Section */}
+        {/* Left Section - Content */}
         <div className="space-y-6 mt-28 md:mt-10 lg:mt-15">
           <header>
+            <div className="mb-3">
+              <span className="text-cyan-400 text-lg md:text-xl font-semibold tracking-wide">
+                FULLSTACK DEVELOPER
+              </span>
+            </div>
+            
             <h1 
               id="hero-heading"
-              className="sm:text-3xl text-4xl md:text-5xl font-extralight leading-snug uppercase"
-              style={{fontFamily: 'LuckyGuy'}}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-bold mb-6"
             >
-              <span className="sr-only">Hello, I'm Joseph — Creative Developer, Problem Solver, Lifelong Learner, and User-Focused Dev.</span>
-              HELLO, I'M JOSEPH
-              <br />
-              <TextType 
-                text={["Creative Developer", "Problem Solver", "Lifelong Learner", "User-Focused Dev"]}
-                typingSpeed={75}
-                pauseDuration={1000}
-                showCursor={false}
-                cursorCharacter="|"
-              />
+              JOSEPH J.I
             </h1>
+
+            <div className="flex flex-wrap gap-3 mb-6">
+              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+                React
+              </span>
+              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+                Next.js
+              </span>
+              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+                Supabase
+              </span>
+              <span className="px-4 py-2 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-300 text-sm font-medium">
+                PostgreSQL
+              </span>
+            </div>
           </header>
 
           <p 
-            className="text-gray-400 text-[16px] md:text-[16px] leading-loose max-w-3xl" 
-            style={{fontFamily: 'Mont'}}
+            className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl" 
           >
-            I build responsive, accessible websites that work for everyone — including users with disabilities. 
-            By integrating AI, I create smarter, more personalized experiences. 
-            My work has improved engagement by over 40%. Explore my portfolio to see how I can help your brand too.
+            I build production-ready web applications from frontend to database. 
+            <span className="text-white font-medium"> Real-time features • Secure authentication • Database architecture • 40% faster performance.</span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex gap-6 pt-6" role="group" aria-label="Hero section action buttons">
-            <DownloadCVButton aria-label="Download Joseph's CV" />
-            
+          <div className="flex flex-wrap gap-4 pt-6" role="group" aria-label="Hero section action buttons">
+            <DownloadCVButton />
             <button 
               onClick={handleWhatsAppClick}
-              className="md:flex items-center text-white transition-colors duration-300 bg-cyan-400 px-4 rounded-sm py-3 font-semibold hover:bg-cyan-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
+              className="flex items-center text-white transition-all duration-300 bg-cyan-400 px-6 rounded-sm py-3 font-semibold hover:bg-cyan-500 active:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-gray-900"
               aria-label="Start a project conversation on WhatsApp"
             >
-              Start Your Project
+              Let's Talk on WhatsApp
             </button>
           </div>
         </div>
 
-        {/* Right Section: Profile Image and Decorative Animation */}
-        <figure 
-          className="flex justify-center lg:justify-start relative mt-8 lg:mt-0 lg:ml-28" 
-          aria-labelledby="hero-image-caption"
+        {/* Right Section - Optimized Profile Image */}
+        <div 
+          className="flex justify-center lg:justify-start relative mt-8 lg:mt-0 lg:ml-28"
+          role="img"
+          aria-label="Professional portrait of Joseph Jonah Inalegwu, Fullstack Developer"
         >
-          <div className="relative group" aria-hidden="true">
-            {/* 3D Graphics and Rings (decorative only) */}
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-90 lg:h-90 xl:w-96 xl:h-96">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-cyan-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute inset-0 border-4 border-cyan-400/60 rounded-full animate-spin" style={{animationDuration: '25s'}}></div>
-              <div className="absolute inset-2 border-2 border-cyan-400/40 rounded-full animate-spin" style={{animationDuration: '20s', animationDirection: 'reverse'}}></div>
-              <div className="absolute inset-4 border-2 border-blue-400/30 rounded-full animate-spin" style={{animationDuration: '15s'}}></div>
+          <div className="relative group">
+            {/* Container with fixed aspect ratio for CLS prevention */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+              
+              {/* Ambient Glow - Cooler tones to neutralize yellow */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-cyan-400/15 via-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse"
+                aria-hidden="true"
+              ></div>
+              
+              {/* Rotating Rings */}
+              <div 
+                className="absolute inset-0 border-4 border-cyan-400/50 rounded-full animate-spin will-change-transform" 
+                style={{ animationDuration: '25s' }}
+                aria-hidden="true"
+              ></div>
+              <div 
+                className="absolute inset-2 border-2 border-blue-400/40 rounded-full animate-spin will-change-transform" 
+                style={{ animationDuration: '20s', animationDirection: 'reverse' }}
+                aria-hidden="true"
+              ></div>
+              <div 
+                className="absolute inset-4 border-2 border-purple-400/30 rounded-full animate-spin will-change-transform" 
+                style={{ animationDuration: '15s' }}
+                aria-hidden="true"
+              ></div>
 
-              {/* Profile Image */}
-              <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/50 transition-all duration-700">
-                <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out">
+              {/* Image Container */}
+              <div className="absolute inset-12 transform rotate-45 rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800/90 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/40 transition-shadow duration-700">
+                <div className="w-full h-full transform -rotate-45 scale-110 group-hover:scale-125 transition-transform duration-700 ease-out will-change-transform">
+                  {/* Optimized Image with better color correction */}
                   <img 
                     src="/first-profile.png" 
-                    alt="Portrait of Joseph Jonah, Frontend Developer" 
-                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500 scale-125"
-                    loading="lazy"
+                    alt="" 
+                    className="w-full h-full object-cover group-hover:brightness-105 transition-all duration-500 scale-125"
+                    style={{
+                      filter: 'saturate(0.9) contrast(1.05) brightness(1.02)',
+                      mixBlendMode: 'normal'
+                    }}
+                    width="384"
+                    height="384"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-400/20 via-transparent to-cyan-400/20 opacity-80 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  
+                  {/* Cool-toned overlay to neutralize yellow */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-blue-500/10 to-purple-500/15 opacity-60 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
+                    aria-hidden="true"
+                    style={{ mixBlendMode: 'overlay' }}
+                  ></div>
+                  
+                  {/* Subtle blue tint overlay */}
+                  <div 
+                    className="absolute inset-0 bg-blue-400/5 pointer-events-none"
+                    aria-hidden="true"
+                  ></div>
                 </div>
               </div>
+
+              {/* Corner Accents */}
+              <div 
+                className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                aria-hidden="true"
+              ></div>
+              <div 
+                className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-cyan-400/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                aria-hidden="true"
+              ></div>
             </div>
           </div>
-          <figcaption id="hero-image-caption" className="sr-only">
-            Portrait of Joseph Jonah, Frontend Developer and UI Designer.
-          </figcaption>
-        </figure>
+        </div>
       </div>
+
+      {/* Optimized Animation Styles */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+          }
+          to { 
+            opacity: 1; 
+            transform: translateY(0); 
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 1s ease-out 0.2s forwards;
+        }
+        
+        /* Hardware acceleration hints */
+        .will-change-transform {
+          will-change: transform;
+        }
+      `}</style>
     </section>
   );
 };
