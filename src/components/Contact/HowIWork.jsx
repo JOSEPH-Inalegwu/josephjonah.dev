@@ -199,6 +199,7 @@ const ProcessSlider = ({
                         ? `${colors.bg}` 
                         : 'bg-gray-600 hover:bg-gray-500'
                     }`}
+                    aria-label={`Go to step ${index + 1}: ${slides[index].title}`}
                   />
                 ))}
               </div>

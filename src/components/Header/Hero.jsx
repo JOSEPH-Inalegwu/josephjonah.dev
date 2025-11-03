@@ -113,18 +113,18 @@ const Hero = () => {
 
               {/* Image Container */}
               <div className="absolute inset-6 transform overflow-hidden bg-gradient-to-br from-slate-800/90 to-slate-900 shadow-2xl group-hover:shadow-cyan-400/40 transition-shadow duration-700">
-                <div className="w-full h-full transform scale-110 group-hover:scale-125 transition-transform duration-700 ease-out will-change-transform">
+                <div className="w-full h-full transform transition-transform duration-700 ease-out will-change-transform">
                   {/* Optimized Image with better color correction */}
                   <img 
-                    src="/first-profile.png" 
+                    src="/jose.webp" 
                     alt="" 
                     className="w-full h-full object-cover group-hover:brightness-105 transition-all duration-500 scale-125"
                     style={{
                       filter: 'saturate(0.9) contrast(1.05) brightness(1.02)',
                       mixBlendMode: 'normal'
                     }}
-                    width="384"
-                    height="384"
+                    width="768"
+                    height="768"
                     loading="eager"
                     fetchpriority="high"
                     decoding="async"

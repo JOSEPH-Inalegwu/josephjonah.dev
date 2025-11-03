@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import joseLogo from '../../../public/jose-logo.png';
 import ContactForm from '../Contact/ContactForm';
 
 const links = [
@@ -56,7 +55,7 @@ const Navbar = () => {
 
   return (
     <>
-      <link rel="preload" as="image" href={joseLogo} />
+      <link rel="preload" as="image" href='/jose-logo.webp' />
 
       <nav
         aria-label="Primary navigation"
@@ -67,11 +66,11 @@ const Navbar = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 md:w-20 md:h-20 bg-custom-blue flex items-center justify-center">
               <img
-                src={joseLogo}
+                src="/jose-logo.webp"
                 className="w-10 h-7 md:w-16 md:h-12"
                 alt="Jose Logo"
-                width="64"
-                height="64"
+                width="128"
+                height="128"
                 fetchpriority="high"
               />
             </div>
@@ -142,7 +141,14 @@ const Navbar = () => {
               <div className="flex-shrink-0 bg-gray-900 p-8 flex items-center justify-between border-l border-cyan-500">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-custom-blue flex items-center justify-center">
-                    <img src={joseLogo} className="w-10 h-7" alt="Jose Logo" />
+                    <img 
+                    src="/jose-logo.webp" 
+                    className="w-10 h-7" 
+                    alt="Jose Logo" 
+                    height="128"
+                    width="128"
+                    fetchPriority='high'
+                    />
                   </div>
                   <span className="text-white text-2xl font-bold tracking-wider">JOSE</span>
                 </div>

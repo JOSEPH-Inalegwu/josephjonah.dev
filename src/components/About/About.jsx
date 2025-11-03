@@ -76,9 +76,12 @@ const About = () => {
                 }`}
               >
                 <img
-                  src="/second-profile.png"
-                  alt="Profile"
+                alt="Profile"
+                  src="/second-profile.webp"
                   className="w-full h-auto aspect-[7/9] object-cover -scale-x-100"
+                  width="700"
+                  height="900"
+                  loading="lazy"
                 />
               </div>
             </div>
